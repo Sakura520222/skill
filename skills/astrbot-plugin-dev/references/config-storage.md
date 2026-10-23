@@ -1,0 +1,73 @@
+# 配置与持久化
+
+来源：[插件配置](https://docs.astrbot.app/dev/star/guides/plugin-config.html)、[插件存储](https://docs.astrbot.app/dev/star/guides/storage.html)。整理日期：2026-10-23。
+
+## 自定义配置 Schema
+
+插件根目录的 `_conf_schema.json` 是配置字段名到字段定义的映射，不是带 `properties` 的标准 JSON Schema：
+
+```json
+{
+  "enabled": {"type": "bool", "description": "启用功能", "default": true},
+  "api_key": {"type": "string", "description": "API Key", "default": "", "secret": true},
+  "provider_id": {"type": "string", "description": "模型", "_special": "select_provider"},
+  "connection": {
+    "type": "object",
+    "description": "连接配置",
+    "items": {"timeout": {"type": "int", "description": "超时秒数", "default": 20}}
+  }
+}
+```
+
+每个字段必须有 `type`。文档支持 `string`、`text`、`int`、`float`、`bool`、`object`、`list`、`dict`、`template_list`；另有 `>=4.13.0` 的 `file`。
+
+- `description`/`hint` 提供文案，`obvious_hint` 强调提示，`invisible` 隐藏字段。
+- `options` 保存真实值，`labels`、`subtitles` 按索引提供展示名与说明；不要翻译保存值。
+- `slider` 仅用于 int/float，例如 `{"min": 1, "max": 60, "step": 1}`。
+- `object.items` 为嵌套字段；`dict.template_schema` 提供可选的编辑模板。
+- `template_list.templates` 为模板名到 `{name, items}` 的映射。保存后是对象列表，每个对象携带 `__template_key`。`display_item` 可指定列表标题使用的字符串字段（支持点号路径），`hide_hint_in_list` 控制折叠列表提示。
+- `file` 配置使用 `default: []` 和 `file_types` 扩展名列表。JSON 不能携带文档示例中的 `//` 注释。
+- `secret: true` 适用于字符串和字符串列表，只有 UI 遮罩效果，配置文件仍保存原值。不要打印整个配置或回显密钥。
+
+可公开使用的 `_special`：`select_provider`、`select_provider_tts`、`select_provider_stt`、`select_persona` 返回字符串；`select_knowledgebase` 为多选，应配 `type: list`、`default: []`。不要把核心内部的 provider_pool 等选项当成插件稳定接口。
+
+## 读取和保存
+
+```python
+from astrbot.api import AstrBotConfig
+from astrbot.api.star import Context, Star
+
+
+class ConfiguredPlugin(Star):
+    def __init__(self, context: Context, config: AstrBotConfig):
+        super().__init__(context)
+        self.config = config
+```
+
+存在 Schema 时，AstrBot 注入字典式 `AstrBotConfig`。读取例如 `self.config.get("enabled", True)`；必要的程序内配置修改可调用 `self.config.save_config()`。配置实体由 AstrBot 管理，文档给出的路径为 `data/config/<plugin_name>_config.json`，不要自行改写路径来绕过配置系统。
+
+升级 Schema 时框架会递归补入缺失项、移除不存在的项。因此字段改名/删除可能丢失旧值；需要迁移时明确处理，不能假定旧字段永远保留。不要把持续增长的业务数据塞进配置。
+
+## KV 存储（>=4.9.2）
+
+插件继承的异步方法：
+
+```python
+await self.put_kv_data("enabled", True)
+enabled = await self.get_kv_data("enabled", False)
+await self.delete_kv_data("enabled")
+```
+
+KV 空间按插件隔离。会话/用户数据仍需在 key 中包含相应来源，例如 `f"preferences:{event.unified_msg_origin}"`，否则同插件的各会话会共享同一个值。读改写计数等操作需要考虑并发，不能假定三个独立异步调用组成事务。
+
+## 文件
+
+```python
+from pathlib import Path
+from astrbot.core.utils.astrbot_path import get_astrbot_data_path
+
+data_dir = Path(get_astrbot_data_path()) / "plugin_data" / self.name
+data_dir.mkdir(parents=True, exist_ok=True)
+```
+
+`self.name` 要求 `>=4.9.2`，更早版本需使用插件稳定名称。业务文件保存在该目录，避免插件重装覆盖数据；插件自带静态模板可以留在代码目录。文件名来自用户时限制到预期目录，并按并发写入需求选择锁/原子替换/数据库。

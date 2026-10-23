@@ -1,0 +1,6 @@
+name: astrbot_plugin_example
+display_name: 示例问候插件
+desc: 通过 /skill_ping 验证消息处理和配置注入。
+version: 1.0.0
+author: example-author
+repo: https://github.com/example-author/astrbot_plugin_example

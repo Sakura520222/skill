@@ -1,0 +1,18 @@
+AstrBot Plugin Development Skill
+https://github.com/Sakura520222/Astrbot-Skill
+
+This skill contains condensed, reorganized and adapted guidance and examples
+from the AstrBot project's Chinese plugin development documentation.
+Upstream: https://github.com/AstrBotDevs/AstrBot
+Copyright: AstrBot contributors. Original authors retain their rights.
+Upstream licensing: AGPL-3.0-or-later, as declared in pyproject.toml.
+The complete AGPL version 3 text is provided in LICENSE.txt.
+
+Modifications dated 2026-10-23: task-based references, skill routing, portable
+agent metadata, a minimal configurable plugin example, and distribution tools.
+This adapted work is distributed under AGPL-3.0-or-later, without warranty.
+All bundled instructions and executable helpers are provided in source form.
+
+Exact upstream commit, source paths and Git blob hashes are recorded in
+references/sources.json. This is an independent community skill and is not
+an official AstrBot, Anthropic, OpenAI or Vercel product.

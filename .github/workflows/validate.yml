@@ -1,0 +1,47 @@
+name: Validate and package skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install validation dependency
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate metadata, references and examples
+        run: python -X utf8 scripts/validate_skill.py
+      - name: Check Python formatting and lint
+        run: |
+          ruff check scripts tests skills/astrbot-plugin-dev/assets
+          ruff format --check scripts tests skills/astrbot-plugin-dev/assets
+      - name: Test source integrity and reproducible packaging
+        run: python -X utf8 -m unittest discover -s tests -v
+      - name: Install for Claude Code and Codex in a temporary project
+        run: python -X utf8 scripts/smoke_install.py
+      - name: Build distribution archives
+        run: python -X utf8 scripts/build.py
+      - name: Upload distribution archives
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: astrbot-plugin-dev
+          path: dist/*
+          if-no-files-found: error

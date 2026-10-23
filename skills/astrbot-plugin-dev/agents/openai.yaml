@@ -1,0 +1,4 @@
+interface:
+  display_name: "AstrBot 插件开发"
+  short_description: "基于官方文档开发和调试 AstrBot 插件，覆盖消息、配置、AI、存储与发布"
+  default_prompt: "使用 $astrbot-plugin-dev，按官方 API 实现并验证这个 AstrBot 插件需求。"

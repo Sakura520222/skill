@@ -1,0 +1,8 @@
+{
+  "greeting": {
+    "type": "string",
+    "description": "问候语",
+    "hint": "发送 /skill_ping 时使用的问候语。",
+    "default": "你好"
+  }
+}
