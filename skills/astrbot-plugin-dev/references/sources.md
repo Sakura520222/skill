@@ -1,12 +1,16 @@
 # 来源与快照维护
 
-本技能于 **2026-10-23** 从 [AstrBot 官方插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html) 及其导航中的新开发指南整理。用户提供的无扩展名入口当前返回 404，实际可访问地址带 `.html`。
+本技能首次于 **2026-10-23** 从 [AstrBot 官方插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html) 及其导航中的新开发指南整理，最新核对日期为 **2026-11-04**。开发文档入口使用 `.html` 地址。
 
-文档的“在 GitHub 上编辑”链接指向 `AstrBotDevs/AstrBot` 仓库的 `docs/zh/`，因此使用该官方仓库的 Markdown 原文核对代码和版本，并固定到提交 [0cd42bd4dd216d8810da4e3f5fb2e381d3c6817e](https://github.com/AstrBotDevs/AstrBot/commit/0cd42bd4dd216d8810da4e3f5fb2e381d3c6817e)。该提交的项目版本为 **4.29.1**，Python 要求为 **>=3.12**；面向旧版插件时以用户实际版本为准。
+文档的“在 GitHub 上编辑”链接指向 `AstrBotDevs/AstrBot` 仓库的 `docs/zh/`，因此使用该官方仓库的 Markdown 原文核对代码和版本。当前固定到主分支提交 [f926af99ec5f8bd85b64413f8bfad55da76ef73b](https://github.com/AstrBotDevs/AstrBot/commit/f926af99ec5f8bd85b64413f8bfad55da76ef73b)，其项目版本字段为 **4.29.4**，Python 要求为 **>=3.12**。
+
+快照包含正式版之后的文档更新，不能据项目版本字段推定所有接口均在正式版存在。对照发布标签 [v4.29.4（61335414）](https://github.com/AstrBotDevs/AstrBot/tree/61335414433db721b3f7ecc93f90deafe0a59d78)，按钮、判断提供商与选择器已出现在该标签文档中；SSE `onClose` 来自发布后的 [15e1b999](https://github.com/AstrBotDevs/AstrBot/commit/15e1b9996e94fad780bc207393ea13506d64b49e)，需目标实例包含这一后续实现。面向旧版插件时以用户实际环境为准。
 
 ## 覆盖
 
 共提炼 14 篇开发相关文档：入门、最小实例、接收消息、发送消息、配置、可视化视图、国际化、AI、存储、文转图、会话控制、杂项、插件发布及市场规范。另核对 `pyproject.toml` 与 `LICENSE`。
+
+相较初始的 `0cd42bd4` 快照，4 篇文档变化已同步到 `messaging.md`、`ai-tools.md`、`config-storage.md` 和 `web-views.md`；其余 10 篇文档内容未变化。
 
 旧的单篇 `plugin.md` 仅作为历史兼容入口，不将其过时示例混入新 API 指导。没有抓取部署、模型接入、HTTP OpenAPI 或平台适配器开发的整站文档；需要这些任务时查看对应官方资料。
 

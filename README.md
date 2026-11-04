@@ -2,7 +2,9 @@
 
 帮助 Claude Code、Codex 等编码 Agent 开发、修改和调试 AstrBot Python 插件的可分发技能。
 
-基于 [AstrBot 官方插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html)，将 14 篇开发相关文档提炼为 10 份按需读取的参考资料，附带最小插件示例、固定来源提交和可复现打包工具。文档快照：**2026-10-23**；对应 AstrBot **4.29.1**。开发旧版本插件时按实际版本核对 API。
+基于 [AstrBot 官方插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html)，将 14 篇开发相关文档提炼为 10 份按需读取的参考资料，附带最小插件示例、固定来源提交和可复现打包工具。技能版本：**1.1.0**；文档快照：**2026-11-04**，固定到 [上游 f926af99](https://github.com/AstrBotDevs/AstrBot/commit/f926af99ec5f8bd85b64413f8bfad55da76ef73b)。
+
+本轮补充交互按钮、Decision Provider 结构化判断、用户/会话选择器及 SSE 关闭通知。快照的 AstrBot 版本字段为 **4.29.4**，但包含该正式版发布后的主分支变化：SSE `onClose` 需包含 2026-11-01 的 bridge 更新；各项适用范围见参考资料，开发旧版插件时核对实际 API。
 
 ## 一键安装到 Claude Code 和 Codex
 
@@ -55,9 +57,9 @@ Codex 中输入：
 
 - 插件结构、metadata、开发环境与重载。
 - 命令/指令组、事件过滤、权限和生命周期钩子。
-- 被动回复、主动推送、富媒体与平台差异。
-- 配置 Schema、敏感字段、KV 和持久化文件。
-- LLM 调用、工具 schema、Agent、对话与人格。
+- 被动回复、主动推送、富媒体、交互按钮与平台差异。
+- 配置 Schema、用户/会话选择器、敏感字段、KV 和持久化文件。
+- LLM 调用、Decision Provider、工具 schema、Agent、对话与人格。
 - 多轮会话等待、取消、超时及会话隔离。
 - 插件可视化视图、bridge、Web API、SSE 和国际化。
 - 文转图、平台专用接口及插件发布。

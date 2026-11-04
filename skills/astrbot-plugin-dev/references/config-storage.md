@@ -1,6 +1,6 @@
 # 配置与持久化
 
-来源：[插件配置](https://docs.astrbot.app/dev/star/guides/plugin-config.html)、[插件存储](https://docs.astrbot.app/dev/star/guides/storage.html)。整理日期：2026-10-23。
+来源：[插件配置](https://docs.astrbot.app/dev/star/guides/plugin-config.html)、[插件存储](https://docs.astrbot.app/dev/star/guides/storage.html)。整理日期：2026-11-04。
 
 ## 自定义配置 Schema
 
@@ -29,7 +29,41 @@
 - `file` 配置使用 `default: []` 和 `file_types` 扩展名列表。JSON 不能携带文档示例中的 `//` 注释。
 - `secret: true` 适用于字符串和字符串列表，只有 UI 遮罩效果，配置文件仍保存原值。不要打印整个配置或回显密钥。
 
-可公开使用的 `_special`：`select_provider`、`select_provider_tts`、`select_provider_stt`、`select_persona` 返回字符串；`select_knowledgebase` 为多选，应配 `type: list`、`default: []`。不要把核心内部的 provider_pool 等选项当成插件稳定接口。
+可公开使用的 `_special`：`select_provider`、`select_provider_tts`、`select_provider_stt`、`select_persona` 返回字符串；`select_knowledgebase` 为多选，应配 `type: list`、`default: []`。用户和会话选择器见下节。不要把核心内部的 provider_pool 等选项当成插件稳定接口。
+
+### 用户和会话来源选择器
+
+以下选择器已在 `v4.29.4` 标签文档中确认；旧版本先核对支持情况：
+
+```json
+{
+  "users": {
+    "type": "list",
+    "description": "指定用户",
+    "default": [],
+    "_special": "sender_id"
+  },
+  "source": {
+    "type": "string",
+    "description": "单个会话来源",
+    "default": "",
+    "_special": "umo"
+  },
+  "sources": {
+    "type": "list",
+    "description": "多个会话来源",
+    "default": [],
+    "_special": "umo"
+  }
+}
+```
+
+- `sender_id` 搜索已记录的用户，保存的只有用户 ID 列表，不含昵称或平台实例。候选按平台实例 ID 与用户 ID 去重；不要把列表值当成完整 UMO。
+- `umo` 支持字符串单选、列表多选，保存完整会话来源，可用于主动推送和会话匹配。
+- 用户候选在消息唤醒机器人时记录，不会补扫历史消息；可手动添加未记录的 ID 或 UMO。
+- 两个选择器均支持 `readonly`。机器人页面组件的 `platformId` 过滤参数尚未向插件配置 schema 提供，不要自行添加该参数并假定它有效。
+
+需要按平台或会话授权时，在业务处理处结合实际来源判断，不能因为用户选择器展示了平台，就假定保存值已经包含平台信息。
 
 ## 读取和保存
 

@@ -1,6 +1,6 @@
 # 回复、主动消息与媒体
 
-来源：[消息的发送](https://docs.astrbot.app/dev/star/guides/send-message.html)。整理日期：2026-10-23。
+来源：[消息的发送](https://docs.astrbot.app/dev/star/guides/send-message.html)。整理日期：2026-11-04。
 
 ## 回复当前事件
 
@@ -37,6 +37,66 @@ await self.context.send_message(origin, message)
 ```
 
 延迟/定时推送时保存完整 `unified_msg_origin`，执行时重新构造消息链，避免长期持有整份事件对象。部分平台限制主动消息；方法返回或请求成功也不一定等于平台已送达，应按适配器验证。跨平台群号可能重复，不要自行拼接/截断来源字符串。
+
+## 交互按钮
+
+按钮 API 已在 `v4.29.4` 标签文档中确认；旧版本先核对消息组件及 `filter.button_action` 是否存在。`ActionRow` 是独立消息组件，使用 `buttons` 包装 `Button`，不能把按钮当作普通文本段或命令参数。
+
+以下三个方法放在 `Star` 子类中：
+
+```python
+from astrbot.api.event import AstrMessageEvent, filter
+import astrbot.api.message_components as Comp
+
+
+@filter.command("example_buttons")
+async def example_buttons(self, event: AstrMessageEvent):
+    yield event.chain_result([
+        Comp.Plain("请选择操作："),
+        Comp.ActionRow(
+            buttons=[
+                Comp.Button(
+                    id="astrbot_plugin_example:confirm",
+                    label="确认",
+                    action=Comp.Button.CallbackAction(data={"item_id": 42}),
+                    style=Comp.Button.Style.PRIMARY,
+                ),
+                Comp.Button(
+                    id="astrbot_plugin_example:docs",
+                    label="文档",
+                    action=Comp.Button.UrlAction(url="https://docs.astrbot.app"),
+                ),
+            ],
+            action_timeout=60,
+            fallback_text="当前平台不支持按钮，请使用 /example_confirm 42。",
+        ),
+    ])
+
+
+@filter.button_action("astrbot_plugin_example:confirm")
+async def confirm(self, event: AstrMessageEvent):
+    interaction = event.get_button_interaction()
+    if interaction is None:
+        return
+    yield event.plain_result(f"收到确认：{interaction.data['item_id']}")
+
+
+@filter.command("example_confirm")
+async def confirm_text(self, event: AstrMessageEvent, item_id: int):
+    yield event.plain_result(f"收到确认：{item_id}")
+```
+
+按钮 ID 使用插件名前缀以避免冲突；未指定 ID 的 `@filter.button_action()` 会匹配全部按钮回调。回调动作的 `data` 必须能 JSON 序列化，通过 `interaction.data` 读取，动作 ID 为 `interaction.action_id`。链接动作仅打开 URL，不进入回调。
+
+`action_timeout` 是一行回调按钮的有效秒数，必须为有限正数；`None` 表示不限时。计时从首次渲染发送开始，同一行共享截止时间，重启保留截止时间。复用同一个 `ActionRow` 实例不会续期，重新计时应创建新实例。过期点击不执行插件 handler；已受理的操作仍可完成，原消息中的按钮也可能继续显示。URL 动作不受此超时限制，`fallback_text` 不是过期提示。
+
+| 支持情况 | 平台 |
+| --- | --- |
+| 回调和链接按钮 | QQ 官方、Telegram、Discord、Slack、飞书、钉钉、LINE、KOOK、Satori、企业微信（含微信客服及 AI Bot）、WebChat |
+| 回调按钮；URL 显示为普通链接 | Mattermost，需要协议端可访问的回调地址 |
+| 仅文字/链接回退，不触发按钮回调 | OneBot v11（NapCat/aiocqhttp）、Misskey、微信公众号、微信个人号（weixin_oc） |
+
+Satori 还受下游平台和客户端能力限制。需要兼容回退平台时，将同一业务能力接入 `fallback_text` 中可用的文字指令，如示例中的 `/example_confirm 42`。回调修改业务数据前按需求核验操作者和对象，处理重复点击；有效期不等于一次性执行保证。
 
 ## 媒体构造
 

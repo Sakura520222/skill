@@ -1,6 +1,6 @@
 # 插件可视化视图与 Web API
 
-来源：[插件可视化视图](https://docs.astrbot.app/dev/star/guides/plugin-pages.html)。整理日期：2026-10-23。该能力随新版本演进，先核对目标版本是否提供 `astrbot.api.web` 与 bridge。
+来源：[插件可视化视图](https://docs.astrbot.app/dev/star/guides/plugin-pages.html)。整理日期：2026-11-04。该能力随新版本演进，先核对目标版本是否提供 `astrbot.api.web` 与 bridge；下方 SSE 关闭通知属于正式版发布后的主分支变化。
 
 ## 结构和连接
 
@@ -71,6 +71,38 @@ endpoint 不允许 scheme、query、hash、空段、`.`、`..` 或反斜杠。GE
 上传文件用 `(await request.files()).get("file")`，校验为 `PluginUploadFile`。限制文件名/大小/类型和数据目录；不要直接信任来自浏览器的完整路径。
 
 SSE handler 返回 `stream_response(...)`，消息使用 `data: ...\n\n`。前端 handler 可读 `event.raw`、`parsed`、`lastEventId`、`eventType`。卸载视图时取消订阅；不用原生 `EventSource` 绕过 bridge，它不能携带这里所需的 Authorization header。
+
+### SSE 结束与错误通知
+
+`onClose` 来自 [2026-11-01 的上游变更](https://github.com/AstrBotDevs/AstrBot/commit/15e1b9996e94fad780bc207393ea13506d64b49e)，晚于 `v4.29.4` 正式版发布；目标必须包含该 bridge 实现，不能把所有版本字段为 4.29.4 的安装都视为已支持。
+
+```javascript
+let subscriptionId;
+try {
+  subscriptionId = await bridge.subscribeSSE("events", {
+    onOpen() {
+      console.log("SSE 已连接");
+    },
+    onMessage(event) {
+      console.log(event.parsed);
+    },
+    onClose() {
+      console.log("SSE 流正常结束");
+    },
+    onError() {
+      console.error("SSE 读取失败");
+    },
+  });
+} catch (error) {
+  console.error("SSE 初次订阅失败", error);
+}
+
+window.addEventListener("beforeunload", () => {
+  if (subscriptionId !== undefined) bridge.unsubscribeSSE(subscriptionId);
+});
+```
+
+流正常结束调用 `onClose`，读取失败调用 `onError`；主动 `unsubscribeSSE` 不触发这两个回调。初次订阅失败会直接 reject 返回的 Promise，应由调用处捕获，不能只依靠 `onError`。bridge 不自动重连，需要继续接收时由业务重新订阅，并清理旧订阅，避免重复流。
 
 ## 资源、主题和语言
 

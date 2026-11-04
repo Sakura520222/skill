@@ -3,15 +3,15 @@ name: astrbot-plugin-dev
 description: 开发、修改和调试 AstrBot Python 插件（Star），处理消息指令、事件钩子、插件配置、LLM 工具、存储及 WebUI 视图，并准备插件发布。Use for AstrBot plugin development; 不用于普通机器人使用问答或独立的 NapCat/OneBot 服务开发。
 license: AGPL-3.0-or-later
 metadata:
-  version: "1.0.0"
-  documentation_snapshot: "2026-10-23"
+  version: "1.1.0"
+  documentation_snapshot: "2026-11-04"
 ---
 
 # AstrBot 插件开发
 
 根据用户目标，在已有插件中完成改动，或创建可被 AstrBot 加载的新插件。先确认项目的 AstrBot 版本、目标消息平台、已有代码和依赖；只读取本次功能涉及的参考文件。
 
-本技能基于官方中文开发文档整理，来源、固定提交和更新方式见 [references/sources.md](references/sources.md)。快照对应 AstrBot 4.29.1，不能据此推定用户已经升级。涉及版本敏感 API 时，优先核对目标环境的公开 API 或对应版本源码；联网不可用时说明尚未验证的兼容性。
+本技能基于官方中文开发文档整理，来源、固定提交和更新方式见 [references/sources.md](references/sources.md)。快照来自版本字段为 4.29.4 的上游主分支，也包含该正式版发布后的文档变化；例如 SSE `onClose` 需要后续主分支实现，不能仅凭版本号判断可用。涉及版本敏感 API 时，优先核对目标环境的公开 API 或对应版本源码；联网不可用时说明尚未验证的兼容性。
 
 ## 按任务选读
 
@@ -19,9 +19,9 @@ metadata:
 | --- | --- |
 | 新插件、目录、metadata、生命周期、开发环境 | [quick-start.md](references/quick-start.md) |
 | 命令、参数、指令组、权限、事件钩子、阻止传播 | [events.md](references/events.md) |
-| 被动回复、主动推送、消息链、图片/文件/语音/视频 | [messaging.md](references/messaging.md) |
-| 配置 Schema、敏感项、KV 和持久化文件 | [config-storage.md](references/config-storage.md) |
-| 调用 LLM、注册工具、Agent、对话和人格 | [ai-tools.md](references/ai-tools.md) |
+| 被动回复、主动推送、消息链、媒体和交互按钮 | [messaging.md](references/messaging.md) |
+| 配置 Schema、用户/会话选择器、KV 和持久化文件 | [config-storage.md](references/config-storage.md) |
+| 调用 LLM、结构化判断、注册工具、Agent、对话和人格 | [ai-tools.md](references/ai-tools.md) |
 | 多轮交互、等待下一条消息、超时和会话隔离 | [session-control.md](references/session-control.md) |
 | 插件自定义页面、bridge、Web API、上传及 SSE | [web-views.md](references/web-views.md) |
 | 插件元数据、配置及页面的多语言展示 | [i18n.md](references/i18n.md) |
