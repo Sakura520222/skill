@@ -1,0 +1,191 @@
+{
+  "snapshot_date": "2026-11-12",
+  "repository": "compose-miuix-ui/miuix",
+  "commit": "96d613aa42c485463c596886a2433a61c1bd7d6f",
+  "upstream_version_field": "0.9.4",
+  "release_verified": false,
+  "license": "Apache-2.0",
+  "requested_url": "https://compose-miuix-ui.github.io/miuix/zh_CN/guide/getting-started",
+  "sources": [
+    {
+      "path": "docs/zh_CN/guide/getting-started.md",
+      "blob_sha": "1f9b777160231e77baf6504e871d70fbc382efed",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/getting-started.md",
+      "references": [
+        "setup.md",
+        "ui-patterns.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/theme.md",
+      "blob_sha": "4722992db896a6e185f2e60af515a21956fd56d3",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/theme.md",
+      "references": [
+        "ui-patterns.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/multiplatform.md",
+      "blob_sha": "039572dfa4912dcb352dfd7af33a3cf8fc8cf5ee",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/multiplatform.md",
+      "references": [
+        "setup.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/icons.md",
+      "blob_sha": "59f8c6a1fd093149e146132b2ebc3785aab24f76",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/icons.md",
+      "references": [
+        "advanced.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/blur.md",
+      "blob_sha": "1adad338c1dfeaf62ea15236c7061132254b30c1",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/blur.md",
+      "references": [
+        "advanced.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/material.md",
+      "blob_sha": "eea96f85c5cf65b6da21165ef01e549a29e552d3",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/material.md",
+      "references": [
+        "setup.md",
+        "advanced.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/glass.md",
+      "blob_sha": "059097b45aca3df09164239937f80ede329e8555",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/glass.md",
+      "references": [
+        "setup.md",
+        "advanced.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/squircle.md",
+      "blob_sha": "04182f0b431bbfe65d4b9feae2a3f20dc6b5affc",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/squircle.md",
+      "references": [
+        "advanced.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/guide/miuix-nav.md",
+      "blob_sha": "03bfe28f3d7498c6c623213be63754399c92cb54",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/guide/miuix-nav.md",
+      "references": [
+        "advanced.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/components/basic/scaffold.md",
+      "blob_sha": "605b92941fc339fcdbc0ccc92098474895e7b916",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/components/basic/scaffold.md",
+      "references": [
+        "ui-patterns.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/components/basic/topappbar.md",
+      "blob_sha": "e67e736a8379fe3ccb5d0cc72b1df1de41e5026b",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/components/basic/topappbar.md",
+      "references": [
+        "advanced.md",
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/components/basic/overlaydialog.md",
+      "blob_sha": "cd4e2cc0d5164a805ae11f2d74085cbcc9baca67",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/components/basic/overlaydialog.md",
+      "references": [
+        "ui-patterns.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/components/basic/windowdialog.md",
+      "blob_sha": "5eb91595b7a3a9597f113140b8a7c2778f948f65",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/components/basic/windowdialog.md",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "docs/zh_CN/components/extended/switchpreference.md",
+      "blob_sha": "d7572dee74e2ae613799958f42a059a3abb2371f",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/docs/zh_CN/components/extended/switchpreference.md",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Scaffold.kt",
+      "blob_sha": "12e1e3a7e3f1739697ad369a3365968a742bc122",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Scaffold.kt",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Button.kt",
+      "blob_sha": "28629abccf344cb649278cbf858ff2f3a82b10a1",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Button.kt",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/ThemeController.kt",
+      "blob_sha": "fdb6c38ad41d6f423b03bdc3371026d61a48cdce",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/ThemeController.kt",
+      "references": [
+        "ui-patterns.md",
+        "troubleshooting.md"
+      ]
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/MiuixTheme.kt",
+      "blob_sha": "8b4a7c90c106dcec04666697f5655688cbd17811",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/MiuixTheme.kt",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/overlay/OverlayDialog.kt",
+      "blob_sha": "a2f38fc47ef2a9644de2180d8e8b87a08e91d048",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/overlay/OverlayDialog.kt",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/SwitchPreference.kt",
+      "blob_sha": "fa46100facc0c0a8b20592c37d832d1dc8a3402c",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/SwitchPreference.kt",
+      "references": [
+        "ui-patterns.md"
+      ]
+    },
+    {
+      "path": "build-logic/src/main/kotlin/BuildConfig.kt",
+      "blob_sha": "f6ad51134c2cc04dfce74a527a5c033c86e49dd9",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/96d613aa42c485463c596886a2433a61c1bd7d6f/build-logic/src/main/kotlin/BuildConfig.kt",
+      "references": [
+        "setup.md"
+      ]
+    }
+  ]
+}

@@ -26,15 +26,19 @@ def hashes(root: Path) -> dict[str, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--skill", type=Path, default=SKILL)
     parser.add_argument(
         "--source", default=str(ROOT), help="Local repository or GitHub owner/repo"
     )
     args = parser.parse_args()
+    skill = args.skill.resolve()
+    if not (skill / "SKILL.md").is_file():
+        raise SystemExit(f"Missing skill entrypoint: {skill}")
     npx = shutil.which("npx.cmd" if os.name == "nt" else "npx")
     if not npx:
         raise SystemExit("npx is required (Node.js >=22.20)")
     env = {**os.environ, "DISABLE_TELEMETRY": "1", "CI": "1"}
-    with tempfile.TemporaryDirectory(prefix="astrbot-skill-install-") as directory:
+    with tempfile.TemporaryDirectory(prefix="skill-install-") as directory:
         project = Path(directory).resolve()
         if not project.is_relative_to(Path(tempfile.gettempdir()).resolve()):
             raise RuntimeError(
@@ -47,7 +51,7 @@ def main() -> int:
             "add",
             args.source,
             "--skill",
-            "astrbot-plugin-dev",
+            skill.name,
             "--agent",
             "claude-code",
             "codex",
@@ -70,10 +74,10 @@ def main() -> int:
             print(result.stdout)
             print(result.stderr)
             return result.returncode
-        expected = hashes(SKILL)
+        expected = hashes(skill)
         destinations = {
-            "claude-code": project / ".claude/skills/astrbot-plugin-dev",
-            "codex": project / ".agents/skills/astrbot-plugin-dev",
+            "claude-code": project / ".claude/skills" / skill.name,
+            "codex": project / ".agents/skills" / skill.name,
         }
         for agent, path in destinations.items():
             actual = hashes(path)
@@ -83,6 +87,7 @@ def main() -> int:
             json.dumps(
                 {
                     "source": args.source,
+                    "skill": skill.name,
                     "installer": "skills@1.7.4",
                     "agents": list(destinations),
                     "verified_files_per_agent": len(expected),

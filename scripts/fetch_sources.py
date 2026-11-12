@@ -19,7 +19,7 @@ MAX_SOURCE_BYTES = 2 * 1024 * 1024
 
 
 def download(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "AstrBot-Skill-source-fetcher/1.0"})
+    request = Request(url, headers={"User-Agent": "Skill-source-fetcher/1.0"})
     with urlopen(request, timeout=30) as response:
         data = response.read(MAX_SOURCE_BYTES + 1)
     if len(data) > MAX_SOURCE_BYTES:
@@ -48,8 +48,8 @@ def fetch_sources(manifest: dict, output: Path, ref: str | None = None) -> dict:
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise ValueError(f"Output must be a new or empty directory: {output}")
     repository = manifest["repository"]
-    if repository != "AstrBotDevs/AstrBot":
-        raise ValueError("This fetcher only retrieves AstrBot's official repository")
+    if repository not in {"AstrBotDevs/AstrBot", "compose-miuix-ui/miuix"}:
+        raise ValueError("This fetcher only retrieves recorded official repositories")
     commit = ref or manifest["commit"]
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
         info = json.loads(
@@ -114,13 +114,14 @@ def fetch_sources(manifest: dict, output: Path, ref: str | None = None) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--manifest", type=Path, default=MANIFEST)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
         "--ref", help="Optional upstream ref; resolved to an immutable SHA"
     )
     args = parser.parse_args()
     try:
-        manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+        manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
         result = fetch_sources(manifest, args.output, args.ref)
     except (OSError, ValueError, KeyError) as error:
         print(f"Fetch failed: {error}", file=sys.stderr)

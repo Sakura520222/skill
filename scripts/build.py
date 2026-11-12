@@ -59,9 +59,10 @@ def build(skill: Path, output: Path) -> list[Path]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--skill", type=Path, default=SKILL)
     parser.add_argument("--output", type=Path, default=Path("dist"))
     args = parser.parse_args()
-    print(json.dumps([str(p) for p in build(SKILL, args.output)]))
+    print(json.dumps([str(p) for p in build(args.skill, args.output)]))
     return 0
 
 

@@ -15,6 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
+        skill: [astrbot-plugin-dev, miuix-guidance]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +28,7 @@ jobs:
       - name: Install validation dependency
         run: python -m pip install -r requirements-dev.txt
       - name: Validate metadata, references and examples
-        run: python -X utf8 scripts/validate_skill.py
+        run: python -X utf8 scripts/validate_skill.py skills/${{ matrix.skill }}
       - name: Check Python formatting and lint
         run: |
           ruff check scripts tests skills/astrbot-plugin-dev/assets
@@ -35,13 +36,13 @@ jobs:
       - name: Test source integrity and reproducible packaging
         run: python -X utf8 -m unittest discover -s tests -v
       - name: Install for Claude Code and Codex in a temporary project
-        run: python -X utf8 scripts/smoke_install.py
+        run: python -X utf8 scripts/smoke_install.py --skill skills/${{ matrix.skill }}
       - name: Build distribution archives
-        run: python -X utf8 scripts/build.py
+        run: python -X utf8 scripts/build.py --skill skills/${{ matrix.skill }} --output dist/${{ matrix.skill }}
       - name: Upload distribution archives
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: astrbot-plugin-dev
-          path: dist/*
+          name: ${{ matrix.skill }}
+          path: dist/${{ matrix.skill }}/*
           if-no-files-found: error

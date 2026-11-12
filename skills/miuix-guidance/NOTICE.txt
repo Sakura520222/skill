@@ -1,0 +1,17 @@
+Miuix Guidance Skill
+https://github.com/sakura520222/skill
+
+This independent community skill contains condensed, reorganized and adapted
+guidance and examples from compose-miuix-ui/miuix's official documentation
+and Kotlin source. It is not an official Miuix product.
+Upstream: https://github.com/compose-miuix-ui/miuix
+Copyright: compose-miuix-ui contributors. Original authors retain their rights.
+Upstream license: Apache-2.0; see LICENSE-APACHE-2.0.txt.
+
+Modifications dated 2026-11-12: task-based guidance, version boundaries,
+dependency selection, state-hoisted UI example, troubleshooting, agent
+metadata and pinned source mapping. This adapted skill is distributed under
+AGPL-3.0-or-later; see LICENSE.txt. No warranty is provided.
+
+The upstream commit and source paths are recorded in references/sources.json.
+Upstream fonts, icon binaries and the complete source snapshot are not bundled.

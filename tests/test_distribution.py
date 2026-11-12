@@ -20,6 +20,37 @@ from validate_skill import SKILL, validate  # noqa: E402
 
 
 class DistributionTests(unittest.TestCase):
+    def test_miuix_distribution_is_complete_and_reproducible(self):
+        skill = ROOT / "skills/miuix-guidance"
+        self.assertEqual(validate(skill)["name"], "miuix-guidance")
+        content = archive_bytes(skill)
+        self.assertEqual(content, archive_bytes(skill))
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            self.assertIsNone(archive.testzip())
+            expected = {
+                "miuix-guidance/" + path.relative_to(skill).as_posix()
+                for path in skill.rglob("*")
+                if path.is_file()
+            }
+            self.assertEqual(set(archive.namelist()), expected)
+
+    def test_miuix_sources_use_the_recorded_repository(self):
+        data = b"# Miuix source\n"
+        manifest = {
+            "repository": "compose-miuix-ui/miuix",
+            "commit": "a" * 40,
+            "sources": [{"path": "docs/guide/theme.md", "blob_sha": blob_sha(data)}],
+        }
+        with tempfile.TemporaryDirectory(prefix="miuix-source-test-") as directory:
+            with patch("fetch_sources.download", return_value=data) as fetch:
+                fetch_sources(manifest, Path(directory) / "sources")
+            self.assertEqual(
+                fetch.call_args.args[0],
+                "https://raw.githubusercontent.com/compose-miuix-ui/miuix/"
+                + "a" * 40
+                + "/docs/guide/theme.md",
+            )
+
     def test_skill_and_examples_validate(self):
         result = validate()
         self.assertGreater(result["examples"], 0)

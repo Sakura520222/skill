@@ -9,6 +9,7 @@
 | 技能 | 用途 | 入口 |
 | --- | --- | --- |
 | `astrbot-plugin-dev` | 开发、修改和调试 AstrBot Python 插件 | [SKILL.md](skills/astrbot-plugin-dev/SKILL.md) |
+| `miuix-guidance` | 接入、使用、迁移和调试 Compose / KMP 的 Miuix UI | [SKILL.md](skills/miuix-guidance/SKILL.md) |
 
 当前收录上述技能。仓库可继续加入开发、工具使用及其他工作流相关技能。
 
@@ -80,6 +81,28 @@ Codex 中输入：
 
 入口见 [SKILL.md](skills/astrbot-plugin-dev/SKILL.md)。资料包含 API 的版本边界、官方来源和运行验证要求；技能不会安装 AstrBot 本体或模型服务。
 
+## miuix-guidance
+
+基于 [Miuix 官方仓库](https://github.com/compose-miuix-ui/miuix)与[中文文档](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/getting-started)，提供依赖选择、主题、设置页、弹层、导航、图标及模糊 / 玻璃 / 连续圆角的使用指导。技能版本：**1.0.0**；资料快照：**2026-11-12**，固定到 [96d613aa](https://github.com/compose-miuix-ui/miuix/commit/96d613aa42c485463c596886a2433a61c1bd7d6f)。
+
+快照来自主分支，其版本字段 `0.9.4` 不代表所有快照 API 已发布到该版本。技能要求以消费项目实际版本为准，处理文档站、主分支与 release 的差异。包含带完整导入的设置页示例；示例经过源码签名核对，未进行独立 Kotlin 编译或设备测试。
+
+安装到两个客户端：
+
+```bash
+npx --yes skills add sakura520222/skill --skill miuix-guidance --agent claude-code codex --global --copy --yes
+```
+
+在本仓库尚未推送新技能时，先在仓库根目录把上述来源改为 `.`，即可从本地安装。
+
+调用示例：
+
+```text
+使用 $miuix-guidance，为当前 Compose 项目实现支持深色模式的 Miuix 设置页，保留现有导航和状态管理。
+```
+
+Claude Code 可使用 `/miuix-guidance`。入口见 [SKILL.md](skills/miuix-guidance/SKILL.md)，来源与维护步骤见 [sources.md](skills/miuix-guidance/references/sources.md)。
+
 ## 更新与卸载
 
 以 `astrbot-plugin-dev` 为例，更新已安装的技能（用户级）：
@@ -119,7 +142,7 @@ tests/             # 维护工具的测试
 
 ## 源码维护与分发包
 
-现有维护脚本和 CI 针对 `astrbot-plugin-dev`，包含其上游文档来源及示例校验。新增技能时应按自身需求扩展验证与打包流程。
+维护脚本保留 `astrbot-plugin-dev` 为默认目标，也支持显式选择技能。CI 在 Windows 和 Linux 分别校验、安装及打包两个技能；Python 示例会做语法检查，Kotlin 示例仍需在实际消费项目中编译验证。
 
 ```bash
 python -m pip install -r requirements-dev.txt
@@ -131,9 +154,17 @@ python scripts/build.py
 python scripts/smoke_install.py
 ```
 
+校验和打包 Miuix 技能：
+
+```bash
+python scripts/validate_skill.py skills/miuix-guidance
+python scripts/build.py --skill skills/miuix-guidance --output dist/miuix-guidance
+python scripts/smoke_install.py --skill skills/miuix-guidance
+```
+
 维护脚本要求 Python >=3.12。最后一条在临时项目中执行真实的 npx 安装，再比对两个客户端目录的全部文件，不改动用户级技能。CI 固定使用 Skills CLI 1.7.4 进行安装回归验证；日常安装命令使用 npm 当前版本。
 
-当前打包命令在 `dist/` 生成带单一 `astrbot-plugin-dev/` 顶层目录的 ZIP、同内容的 `.skill` 文件和 `SHA256SUMS.txt`，包含技能正文、参考资料、示例资产及许可声明。GitHub Actions 在 Windows 和 Linux 校验及安装，校验成功后提供分发包 artifact。直接克隆此仓库也可以使用 Skills CLI 从本地路径安装。
+打包命令在指定输出目录生成带单一技能名顶层目录的 ZIP、同内容的 `.skill` 文件和 `SHA256SUMS.txt`，包含技能正文、参考资料、该技能的资产及许可声明。默认仍打包 AstrBot 到 `dist/`；同时打包多个技能时，为每个技能指定独立输出子目录，避免校验清单互相覆盖。GitHub Actions 校验成功后提供各技能的分发包 artifact。直接克隆此仓库也可以使用 Skills CLI 从本地路径安装。
 
 原始文档抓取和快照更新步骤见 [sources.md](skills/astrbot-plugin-dev/references/sources.md)，逐项来源与 Git blob SHA 见 [sources.json](skills/astrbot-plugin-dev/references/sources.json)。缓存不进入仓库或技能包；本仓库分发经过提炼的开发指导。
 
@@ -142,3 +173,5 @@ python scripts/smoke_install.py
 本仓库采用 **AGPL-3.0-or-later**，许可正文见 [LICENSE](LICENSE)。各技能引用或改写第三方资料时须保留原有来源归属和许可声明。
 
 `astrbot-plugin-dev` 保留 AstrBot 原文及示例的来源归属，改写说明见 [NOTICE.txt](skills/astrbot-plugin-dev/NOTICE.txt)。这是社区整理的独立技能。
+
+`miuix-guidance` 保留 Miuix 的 Apache-2.0 来源归属和许可正文，改写说明见 [NOTICE.txt](skills/miuix-guidance/NOTICE.txt)。重新整理的技能遵循本仓库许可，不包含上游字体或图标二进制。
