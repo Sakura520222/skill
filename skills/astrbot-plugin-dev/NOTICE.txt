@@ -1,5 +1,5 @@
 AstrBot Plugin Development Skill
-https://github.com/Sakura520222/Astrbot-Skill
+https://github.com/sakura520222/skill
 
 This skill contains condensed, reorganized and adapted guidance and examples
 from the AstrBot project's Chinese plugin development documentation.
