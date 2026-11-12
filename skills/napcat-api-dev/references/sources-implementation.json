@@ -1,0 +1,149 @@
+{
+  "snapshot_date": "2026-11-12",
+  "repository": "NapNeko/NapCatQQ",
+  "commit": "72912f293924f43463b5976b01fc094a8ae11481",
+  "release_verified": false,
+  "license": "Limited Redistribution License for NapCat; mixed licensing",
+  "sources": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "a79f4f97db1bab5ada62d8844aaa33291ef2e604",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/LICENSE",
+      "references": [
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "920ee1dffc2e4d788337dd64536c5121bdca69c4",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/README.md",
+      "references": [
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "package.json",
+      "blob_sha": "4ea35cad2f2dc51ed68ff5c5a968796868782494",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/package.json",
+      "references": [
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-common/src/version.ts",
+      "blob_sha": "723b53084c93406de3e51e58936a916597595ada",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-common/src/version.ts",
+      "references": [
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/config/config.ts",
+      "blob_sha": "71e1edcf5b3372c70817936a9365b5ece680702a",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/config/config.ts",
+      "references": [
+        "connection.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/network/http-server.ts",
+      "blob_sha": "370ef1120f37a60e3f9418f80b01b8b0832bf992",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/network/http-server.ts",
+      "references": [
+        "connection.md",
+        "api.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/network/websocket-server.ts",
+      "blob_sha": "ca953b2f3f71039d9217c4e512da74cd946f573e",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/network/websocket-server.ts",
+      "references": [
+        "connection.md",
+        "api.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/network/websocket-client.ts",
+      "blob_sha": "fddb82aa84b96aff1df659289d71cab620626878",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/network/websocket-client.ts",
+      "references": [
+        "connection.md",
+        "api.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/network/plugin/types.ts",
+      "blob_sha": "17621adcd6ed014afc71dac30ef90aa38521cc0b",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/network/plugin/types.ts",
+      "references": [
+        "plugins.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/network/plugin/loader.ts",
+      "blob_sha": "93c11e6c7e1a2969196bf5897b317ca6b9601ad6",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/network/plugin/loader.ts",
+      "references": [
+        "plugins.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/index.ts",
+      "blob_sha": "40cb1f36e1c96710edfb9b392eb0e02971db37fe",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/index.ts",
+      "references": [
+        "api.md",
+        "plugins.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/router.ts",
+      "blob_sha": "66ed0661948fb2ff67cefabc81945818e17ce99e",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/router.ts",
+      "references": [
+        "api.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/OneBotAction.ts",
+      "blob_sha": "4619da01f8d70dee2721e4f0886f2661e62ba169",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/OneBotAction.ts",
+      "references": [
+        "api.md",
+        "source-development.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/msg/SendMsg.ts",
+      "blob_sha": "514e225fa3ce53fa4a3dd9e0d7922f432af117e9",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/msg/SendMsg.ts",
+      "references": [
+        "api.md",
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/group/SendGroupMsg.ts",
+      "blob_sha": "0188af771092d5148923e2f372c6eed7f4d32954",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/group/SendGroupMsg.ts",
+      "references": [
+        "api.md"
+      ]
+    },
+    {
+      "path": "packages/napcat-onebot/action/file/GetGroupFileUrl.ts",
+      "blob_sha": "2fadb0f21399f68caeb754edbeae1b028788ff16",
+      "source_url": "https://github.com/NapNeko/NapCatQQ/blob/72912f293924f43463b5976b01fc094a8ae11481/packages/napcat-onebot/action/file/GetGroupFileUrl.ts",
+      "references": [
+        "api.md",
+        "messages-files.md"
+      ]
+    }
+  ]
+}

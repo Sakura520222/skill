@@ -1,0 +1,4 @@
+interface:
+  display_name: "NapCat API 与开发"
+  short_description: "查阅 NapCat 官方 API，开发调试 OneBot 对接、插件与 WebUI"
+  default_prompt: "使用 $napcat-api-dev，按当前 NapCat 版本查证所需 API，实现对接或插件功能并验证。"

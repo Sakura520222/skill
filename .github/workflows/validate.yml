@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        skill: [astrbot-plugin-dev, miuix-guidance]
+        skill: [astrbot-plugin-dev, miuix-guidance, napcat-api-dev]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

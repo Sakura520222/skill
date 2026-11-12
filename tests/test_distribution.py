@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import io
 import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -20,6 +21,64 @@ from validate_skill import SKILL, validate  # noqa: E402
 
 
 class DistributionTests(unittest.TestCase):
+    def test_napcat_distribution_covers_both_upstreams(self):
+        skill = ROOT / "skills/napcat-api-dev"
+        result = validate(skill)
+        manifests = [
+            json.loads(path.read_text(encoding="utf-8"))
+            for path in (skill / "references").glob("sources*.json")
+        ]
+        self.assertEqual(
+            {manifest["repository"] for manifest in manifests},
+            {"NapNeko/NapCatDocs", "NapNeko/NapCatQQ"},
+        )
+        self.assertEqual(
+            result["sources"], sum(len(item["sources"]) for item in manifests)
+        )
+        content = archive_bytes(skill)
+        self.assertEqual(content, archive_bytes(skill))
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            self.assertIsNone(archive.testzip())
+            expected = {
+                "napcat-api-dev/" + path.relative_to(skill).as_posix()
+                for path in skill.rglob("*")
+                if path.is_file()
+            }
+            self.assertEqual(set(archive.namelist()), expected)
+
+    def test_secondary_source_manifest_is_validated(self):
+        skill = ROOT / "skills/napcat-api-dev"
+        with tempfile.TemporaryDirectory(prefix="napcat-provenance-test-") as directory:
+            copy = Path(directory) / skill.name
+            shutil.copytree(skill, copy)
+            source = copy / "references/sources-implementation.json"
+            manifest = json.loads(source.read_text(encoding="utf-8"))
+            manifest["sources"][0]["blob_sha"] = "invalid"
+            source.write_text(json.dumps(manifest), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Invalid source blob SHA"):
+                validate(copy)
+
+    def test_napcat_sources_fetch_from_each_pinned_repository(self):
+        data = b"# Official source\n"
+        for repository in ("NapNeko/NapCatDocs", "NapNeko/NapCatQQ"):
+            with self.subTest(repository=repository):
+                manifest = {
+                    "repository": repository,
+                    "commit": "d" * 40,
+                    "sources": [{"path": "README.md", "blob_sha": blob_sha(data)}],
+                }
+                with tempfile.TemporaryDirectory(
+                    prefix="napcat-source-test-"
+                ) as directory:
+                    with patch("fetch_sources.download", return_value=data) as fetch:
+                        fetch_sources(manifest, Path(directory) / "sources")
+                    self.assertEqual(
+                        fetch.call_args.args[0],
+                        f"https://raw.githubusercontent.com/{repository}/"
+                        + "d" * 40
+                        + "/README.md",
+                    )
+
     def test_miuix_distribution_is_complete_and_reproducible(self):
         skill = ROOT / "skills/miuix-guidance"
         self.assertEqual(validate(skill)["name"], "miuix-guidance")

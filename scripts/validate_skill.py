@@ -106,23 +106,26 @@ def validate(skill: Path = SKILL) -> dict:
                     yaml.safe_load(block)
                     examples += 1
 
-    manifest = json.loads(
-        (skill / "references/sources.json").read_text(encoding="utf-8")
-    )
-    if not re.fullmatch(r"[0-9a-f]{40}", manifest["commit"]):
-        raise ValueError("Sources must be pinned to an immutable upstream commit")
-    if meta["metadata"]["documentation_snapshot"] != manifest["snapshot_date"]:
-        raise ValueError("Snapshot dates disagree")
+    manifests = [skill / "references/sources.json"]
+    manifests.extend(sorted((skill / "references").glob("sources-*.json")))
     covered = set()
-    for entry in manifest["sources"]:
-        if not re.fullmatch(r"[0-9a-f]{40}", entry["blob_sha"]):
-            raise ValueError(f"Invalid source blob SHA: {entry['path']}")
-        if f"/blob/{manifest['commit']}/" not in entry["source_url"]:
-            raise ValueError(f"Unpinned source URL: {entry['path']}")
-        for ref in entry["references"]:
-            if not (skill / "references" / ref).is_file():
-                raise ValueError(f"Missing source destination: {ref}")
-            covered.add(ref)
+    source_count = 0
+    for manifest_path in manifests:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if not re.fullmatch(r"[0-9a-f]{40}", manifest["commit"]):
+            raise ValueError("Sources must be pinned to an immutable upstream commit")
+        if meta["metadata"]["documentation_snapshot"] != manifest["snapshot_date"]:
+            raise ValueError("Snapshot dates disagree")
+        for entry in manifest["sources"]:
+            if not re.fullmatch(r"[0-9a-f]{40}", entry["blob_sha"]):
+                raise ValueError(f"Invalid source blob SHA: {entry['path']}")
+            if f"/blob/{manifest['commit']}/" not in entry["source_url"]:
+                raise ValueError(f"Unpinned source URL: {entry['path']}")
+            for ref in entry["references"]:
+                if not (skill / "references" / ref).is_file():
+                    raise ValueError(f"Missing source destination: {ref}")
+                covered.add(ref)
+        source_count += len(manifest["sources"])
     for path in (skill / "references").glob("*.md"):
         if path.name != "sources.md" and path.name not in covered:
             raise ValueError(f"Reference has no recorded source: {path.name}")
@@ -130,7 +133,7 @@ def validate(skill: Path = SKILL) -> dict:
         "name": meta["name"],
         "local_links": links,
         "examples": examples,
-        "sources": len(manifest["sources"]),
+        "sources": source_count,
     }
 
 

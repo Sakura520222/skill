@@ -1,0 +1,164 @@
+{
+  "snapshot_date": "2026-11-12",
+  "repository": "NapNeko/NapCatDocs",
+  "commit": "90399c468599fb28fe4c426e4444844ba9f89548",
+  "release_verified": false,
+  "license": "MIT",
+  "sources": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "7ddaf2768ebd7a8a9297b27f2d1f58411b9f706b",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/LICENSE",
+      "references": []
+    },
+    {
+      "path": "src/guide/start-install.md",
+      "blob_sha": "8a090843fc8fc0c43610f534ca08e554b3618fec",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/guide/start-install.md",
+      "references": [
+        "connection.md"
+      ]
+    },
+    {
+      "path": "src/guide/boot/Shell.md",
+      "blob_sha": "09c6aec0c7e38365fab1b63da4b486b3434c684b",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/guide/boot/Shell.md",
+      "references": [
+        "connection.md"
+      ]
+    },
+    {
+      "path": "src/guide/boot/Framework.md",
+      "blob_sha": "40dfc8f0d55ad2dd300f5cd725cd44e26e18a0e1",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/guide/boot/Framework.md",
+      "references": [
+        "connection.md"
+      ]
+    },
+    {
+      "path": "src/config/basic.md",
+      "blob_sha": "306c85d8fc55a678549b5a702d50611147010edc",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/config/basic.md",
+      "references": [
+        "connection.md"
+      ]
+    },
+    {
+      "path": "src/config/advanced.md",
+      "blob_sha": "f4464b604e9c0ad3cfa9be562edf72fc4fc34a0c",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/config/advanced.md",
+      "references": [
+        "connection.md"
+      ]
+    },
+    {
+      "path": "src/onebot/network.md",
+      "blob_sha": "daf670372ce822469242f92be3276a7e8f1dfe2e",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/onebot/network.md",
+      "references": [
+        "connection.md",
+        "api.md"
+      ]
+    },
+    {
+      "path": "src/onebot/basic_event.md",
+      "blob_sha": "04381c77cc9df986a6cb0cec69dd1b6acf368ae8",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/onebot/basic_event.md",
+      "references": [
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "src/onebot/segment.md",
+      "blob_sha": "9214f2a9ab166b5d7d21055514fd79bbf36e9a97",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/onebot/segment.md",
+      "references": [
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "src/onebot/napcat.md",
+      "blob_sha": "6b1bda3f27cb9f0d5eada51ac129556ca6a78df7",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/onebot/napcat.md",
+      "references": [
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "src/develop/file.md",
+      "blob_sha": "bff3975a03a2c58eb7642bc445211827875b7ab2",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/file.md",
+      "references": [
+        "api.md",
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "src/api/index.md",
+      "blob_sha": "8f4db88d9a73a79b8974ae72bc1733cd80cf0bb4",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/api/index.md",
+      "references": [
+        "api.md"
+      ]
+    },
+    {
+      "path": "src/api/4.18.42/openapi.json",
+      "blob_sha": "706f8ae55c576649ca31d378264406519f54e585",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/api/4.18.42/openapi.json",
+      "references": [
+        "api.md",
+        "messages-files.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/index.md",
+      "blob_sha": "b56f926fe3ff63d919f3adb7056b48c3a67eabea",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/index.md",
+      "references": [
+        "plugins.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/mechanism.md",
+      "blob_sha": "54bbc42f234247cdf8074fe3914c702a789e5dd0",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/mechanism.md",
+      "references": [
+        "plugins.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/structure.md",
+      "blob_sha": "2a85089301315a5895305e9b8bfaf0740cf3ad7d",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/structure.md",
+      "references": [
+        "plugins.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/start-webui.md",
+      "blob_sha": "b8a1ff586a9364234961bf1cfd6cb1fad1e10fec",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/start-webui.md",
+      "references": [
+        "plugins.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/hot-reload.md",
+      "blob_sha": "63b71018b9b4318a64142c422130d1bf5aefd354",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/hot-reload.md",
+      "references": [
+        "plugins.md"
+      ]
+    },
+    {
+      "path": "src/develop/plugin/publish.md",
+      "blob_sha": "a3ca62e06bf0f875130a979465d2b99516b4f9ec",
+      "source_url": "https://github.com/NapNeko/NapCatDocs/blob/90399c468599fb28fe4c426e4444844ba9f89548/src/develop/plugin/publish.md",
+      "references": [
+        "plugins.md"
+      ]
+    }
+  ],
+  "openapi_version": "4.18.42",
+  "requested_url": "https://napneko.github.io/guide/start-install"
+}

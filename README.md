@@ -10,6 +10,7 @@
 | --- | --- | --- |
 | `astrbot-plugin-dev` | 开发、修改和调试 AstrBot Python 插件 | [SKILL.md](skills/astrbot-plugin-dev/SKILL.md) |
 | `miuix-guidance` | 接入、使用、迁移和调试 Compose / KMP 的 Miuix UI | [SKILL.md](skills/miuix-guidance/SKILL.md) |
+| `napcat-api-dev` | 查阅 NapCat API，开发调试 OneBot 对接、NapCat 插件与 WebUI | [SKILL.md](skills/napcat-api-dev/SKILL.md) |
 
 当前收录上述技能。仓库可继续加入开发、工具使用及其他工作流相关技能。
 
@@ -103,6 +104,28 @@ npx --yes skills add sakura520222/skill --skill miuix-guidance --agent claude-co
 
 Claude Code 可使用 `/miuix-guidance`。入口见 [SKILL.md](skills/miuix-guidance/SKILL.md)，来源与维护步骤见 [sources.md](skills/miuix-guidance/references/sources.md)。
 
+## napcat-api-dev
+
+基于 [NapCatQQ 官方仓库](https://github.com/NapNeko/NapCatQQ)与[官方文档](https://napneko.github.io/guide/start-install)，提供按版本查询 API、HTTP / 正反向 WebSocket 对接、消息与事件、文件流、NapCat JS / TS 插件、WebUI 和源码定位指导。技能版本：**1.0.0**；资料整理日期：**2026-11-12**。
+
+文档固定到 NapCatDocs `90399c46`，实现核对固定到 NapCatQQ `72912f29`，另记录文档中的 `4.18.42` OpenAPI。三者不视为同一个发布版本；使用时以实际 NapCat 版本为准。包含文档与实现差异说明，不附带 NapCat 本体代码，也不安装或启动 QQ。
+
+安装到两个客户端：
+
+```bash
+npx --yes skills add sakura520222/skill --skill napcat-api-dev --agent claude-code codex --global --copy --yes
+```
+
+新技能尚未推送时，在仓库根目录将来源 `sakura520222/skill` 改为 `.` 可从本地安装。
+
+调用示例：
+
+```text
+使用 $napcat-api-dev，按当前 NapCat 版本实现反向 WebSocket 对接，正确分流 API 响应和消息事件，并验证断线恢复。
+```
+
+Claude Code 可使用 `/napcat-api-dev`。入口见 [SKILL.md](skills/napcat-api-dev/SKILL.md)，来源与维护步骤见 [sources.md](skills/napcat-api-dev/references/sources.md)。该技能涵盖 NapCat 内嵌插件；AstrBot Python 插件开发仍使用 `astrbot-plugin-dev`。
+
 ## 更新与卸载
 
 以 `astrbot-plugin-dev` 为例，更新已安装的技能（用户级）：
@@ -142,7 +165,7 @@ tests/             # 维护工具的测试
 
 ## 源码维护与分发包
 
-维护脚本保留 `astrbot-plugin-dev` 为默认目标，也支持显式选择技能。CI 在 Windows 和 Linux 分别校验、安装及打包两个技能；Python 示例会做语法检查，Kotlin 示例仍需在实际消费项目中编译验证。
+维护脚本保留 `astrbot-plugin-dev` 为默认目标，也支持显式选择技能。CI 在 Windows 和 Linux 分别校验、安装及打包三个技能；Python 示例会做语法检查，Kotlin 示例仍需在实际消费项目中编译验证。NapCat 技能的资料校验不代表完成真实 QQ 收发验证。
 
 ```bash
 python -m pip install -r requirements-dev.txt
@@ -162,6 +185,14 @@ python scripts/build.py --skill skills/miuix-guidance --output dist/miuix-guidan
 python scripts/smoke_install.py --skill skills/miuix-guidance
 ```
 
+校验和打包 NapCat 技能：
+
+```bash
+python scripts/validate_skill.py skills/napcat-api-dev
+python scripts/build.py --skill skills/napcat-api-dev --output dist/napcat-api-dev
+python scripts/smoke_install.py --skill skills/napcat-api-dev
+```
+
 维护脚本要求 Python >=3.12。最后一条在临时项目中执行真实的 npx 安装，再比对两个客户端目录的全部文件，不改动用户级技能。CI 固定使用 Skills CLI 1.7.4 进行安装回归验证；日常安装命令使用 npm 当前版本。
 
 打包命令在指定输出目录生成带单一技能名顶层目录的 ZIP、同内容的 `.skill` 文件和 `SHA256SUMS.txt`，包含技能正文、参考资料、该技能的资产及许可声明。默认仍打包 AstrBot 到 `dist/`；同时打包多个技能时，为每个技能指定独立输出子目录，避免校验清单互相覆盖。GitHub Actions 校验成功后提供各技能的分发包 artifact。直接克隆此仓库也可以使用 Skills CLI 从本地路径安装。
@@ -175,3 +206,5 @@ python scripts/smoke_install.py --skill skills/miuix-guidance
 `astrbot-plugin-dev` 保留 AstrBot 原文及示例的来源归属，改写说明见 [NOTICE.txt](skills/astrbot-plugin-dev/NOTICE.txt)。这是社区整理的独立技能。
 
 `miuix-guidance` 保留 Miuix 的 Apache-2.0 来源归属和许可正文，改写说明见 [NOTICE.txt](skills/miuix-guidance/NOTICE.txt)。重新整理的技能遵循本仓库许可，不包含上游字体或图标二进制。
+
+`napcat-api-dev` 保留 NapCatDocs 的 MIT 来源归属和许可正文，说明见 [NOTICE.txt](skills/napcat-api-dev/NOTICE.txt)。NapCatQQ 本体使用自定义及混合许可，技能未复制其实现，不能将本仓库许可视为上游源码的许可。

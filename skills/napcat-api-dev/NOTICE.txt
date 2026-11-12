@@ -1,0 +1,26 @@
+NapCat API and Development Skill
+https://github.com/sakura520222/skill
+
+This independent community skill provides original task-oriented guidance
+based on the public NapCat documentation and interface observations. It is
+not an official NapCat product and does not include NapCatQQ implementation
+code, modified upstream modules, binaries or a complete documentation copy.
+
+Documentation source: https://github.com/NapNeko/NapCatDocs
+Copyright (c) 2024 NapCat. Licensed under MIT; see LICENSE-NAPCATDOCS.txt.
+Documentation has been condensed, reorganized and cross-checked against
+the implementation. Changes dated 2026-11-12 include version-aware API
+lookup, transport direction corrections, plugin workflows and validation.
+
+Implementation consulted: https://github.com/NapNeko/NapCatQQ
+Copyright (c) 2024 Mlikiowa and respective contributors.
+NapCatQQ uses a custom Limited Redistribution License and mixed licensing,
+not MIT or this skill's license. Consult its pinned LICENSE and README
+before copying, modifying or distributing upstream implementation code.
+
+The original skill instructions are distributed under AGPL-3.0-or-later;
+see LICENSE.txt. This does not relicense upstream materials. Original
+authors retain their rights. No warranty is provided.
+
+Immutable source commits, blob hashes and reference mappings are recorded
+in references/sources.json and references/sources-implementation.json.

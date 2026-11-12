@@ -48,7 +48,12 @@ def fetch_sources(manifest: dict, output: Path, ref: str | None = None) -> dict:
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise ValueError(f"Output must be a new or empty directory: {output}")
     repository = manifest["repository"]
-    if repository not in {"AstrBotDevs/AstrBot", "compose-miuix-ui/miuix"}:
+    if repository not in {
+        "AstrBotDevs/AstrBot",
+        "compose-miuix-ui/miuix",
+        "NapNeko/NapCatDocs",
+        "NapNeko/NapCatQQ",
+    }:
         raise ValueError("This fetcher only retrieves recorded official repositories")
     commit = ref or manifest["commit"]
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
