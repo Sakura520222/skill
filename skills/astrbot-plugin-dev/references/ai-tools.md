@@ -1,6 +1,6 @@
 # LLM、工具与对话
 
-来源：[调用 AI](https://docs.astrbot.app/dev/star/guides/ai.html)。整理日期：2026-11-04。聊天模型与 Agent 调用优先使用 `>=4.5.7` 的新接口；下方新增的判断提供商需单独确认目标版本支持。
+聊天模型和自定义工具循环接口自 `v4.5.7` 起提供。需要复用现有会话的 Agent 配置时，见 [agent-runtime.md](agent-runtime.md)。来源：[模型、工具、会话与人格文档](https://github.com/AstrBotDevs/AstrBot/tree/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai)。
 
 ## 按当前会话选择模型
 
@@ -94,9 +94,7 @@ async def add_numbers(self, event: AstrMessageEvent, a: int, b: int) -> str:
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
-from astrbot.core.agent.run_context import ContextWrapper
-from astrbot.core.agent.tool import FunctionTool, ToolExecResult, ToolSet
-from astrbot.core.astr_agent_context import AstrAgentContext
+from astrbot.api.agents import AstrAgentContext, ContextWrapper, FunctionTool, ToolExecResult
 
 
 @dataclass
@@ -115,13 +113,19 @@ class AddTool(FunctionTool[AstrAgentContext]):
         return str(kwargs["a"] + kwargs["b"])
 ```
 
-让常规对话使用工具时在插件构造函数调用 `self.context.add_llm_tools(AddTool())`（>=4.5.1）。不要用已弃用的 `register_llm_tool()`。只有用户要修复旧接口时才处理其 `func_args` 字典列表兼容格式。
+示例使用 `v4.30.0-alpha.1` 已提供的公开导入。兼容 `v4.29.4` 时，从 `astrbot.core.agent.tool` 导入 `FunctionTool`、`ToolExecResult` 和 `ToolSet`，从 `astrbot.core.agent.run_context` 导入 `ContextWrapper`，从 `astrbot.core.astr_agent_context` 导入 `AstrAgentContext`。
+
+让常规对话使用工具时在插件构造函数调用 `self.context.add_llm_tools(AddTool())`（>=4.5.1）。维护已弃用的 `register_llm_tool()` 时，`func_args` 使用字典列表。
 
 注册后还需核对模型工具调用能力、当前人格允许的工具和插件启用状态。
 
 ## Agent 循环（>=4.5.7）
 
+用此接口自行指定模型、提示和工具。复用前节的 `AddTool`，按当前会话选择 `provider_id`：
+
 ```python
+from astrbot.api.agents import ToolSet
+
 response = await self.context.tool_loop_agent(
     event=event,
     chat_provider_id=provider_id,
@@ -135,9 +139,9 @@ yield event.plain_result(response.completion_text)
 
 显式设置与任务相称的步数和工具超时。确有多智能体需求时可把子 Agent 包装成 `FunctionTool`，在 `call()` 中通过 `context.context.context` 获取 AstrBot Context、`context.context.event` 获取事件，再调用自己的 `tool_loop_agent`。避免无界递归和重复使用不需要的工具。
 
-## 对话和人格
+## 对话历史和人格
 
-`self.context.conversation_manager` 的常用异步方法：
+新版使用 `self.context.conversations`。`self.context.conversation_manager` 在新版仍是兼容别名，也适用于 `v4.29.4`。UMO 标识会话，`cid` 标识该会话中的一组对话历史。
 
 - `get_curr_conversation_id(umo)` 返回当前 ID 或 `None`。
 - `get_conversation(umo, cid, create_if_not_exists=False)` 返回对象或 `None`，历史字段为 JSON 字符串。
@@ -146,6 +150,13 @@ yield event.plain_result(response.completion_text)
 - `add_message_pair(cid=..., user_message=..., assistant_message=...)` 追加成对消息。
 - `delete_conversation(umo, cid)` 删除目标，`cid=None` 表示当前对话。
 
-使用前处理不存在的当前对话和返回 `None`；不要为一次无状态模型调用意外新建、切换或清空用户对话。需要持久化模型输入输出时，按目标版本使用 `UserMessageSegment`、`AssistantMessageSegment`、`TextPart`，并验证写入范围。
+先处理无当前对话或查询返回 `None` 的情况。用 `add_message_pair` 写模型输入输出时，在新版从 `astrbot.api.agents` 导入 `UserMessageSegment`、`AssistantMessageSegment` 和 `TextPart`，旧版从 `astrbot.core.agent.message` 导入。
+
+`v4.30.0-alpha.1` 的对话事件存储提供两个追加接口，均要求已存在的 `cid`，且不会触发 Agent：
+
+- `append_message(content, cid=..., message_id=...)` 追加用户角色的文本或内容片段，进入后续模型上下文。
+- `append_plugin_event(event_type=..., data=..., cid=..., event_id=...)` 保存插件事件，适用于按对话保留 JSON 兼容的记录。`event_type` 使用插件名称前缀。可变状态可用带 `cid` 的插件 KV。
+
+同一提交重试时复用 `message_id` 或 `event_id`。上述写入及 `update_conversation`、`add_message_pair` 不会更改正在运行的 Agent 上下文。需要修改本轮输入时使用对应 hook 或运行时接口。并发更新历史可能触发 `ConversationConflictError`。历史中的 `_no_save` 标记只排除后续模型上下文，原文仍可能被持久化。
 
 `self.context.persona_manager` 提供 `get_persona`、`get_all_personas`、`create_persona`、`update_persona`、`delete_persona`。`tools=None` 表示全部工具，`tools=[]` 表示禁用全部，不能混淆。人格不存在时的返回/异常细节文档有不一致，调用前核对目标实现。不要为了临时请求修改用户的全局人格。

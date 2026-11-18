@@ -13,5 +13,8 @@ dependency selection, state-hoisted UI example, troubleshooting, agent
 metadata and pinned source mapping. This adapted skill is distributed under
 AGPL-3.0-or-later; see LICENSE.txt. No warranty is provided.
 
+Modifications dated 2026-11-18: pinned the published 0.9.5-beta01 release
+and updated Glass, Material, Android compatibility and scroll guidance.
+
 The upstream commit and source paths are recorded in references/sources.json.
 Upstream fonts, icon binaries and the complete source snapshot are not bundled.

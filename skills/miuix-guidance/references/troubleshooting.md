@@ -13,13 +13,16 @@
 | 顶栏不折叠 / 内容被栏遮挡 | 共享 scroll behavior、nestedScroll、padding | 将同一行为接到列表；只应用一次需要的 Insets |
 | 切换主题后无变化 | ThemeController 的 remember keys；实际读取哪套主题 | 重建带新输入的 controller；核对 Miuix / Material 主题边界 |
 | 扩展图标无法解析 | 图标模块、扩展属性 import、版本中的图标名称 | 查该版本图标定义，不靠名称自动补全猜测 |
-| 加 blur/glass 后 manifest 合并失败 | AAR minSdk 与应用 minSdk | 区分构件最低版本与运行时能力；选择兼容方案 |
+| 加 Blur 或 Glass 后 manifest 合并失败 | Android AAR 与传递依赖的 minSdk | Beta 的 Glass 自身是 24，传递 Blur 是 33。按 [接入指南](setup.md) 选择 Android 回退方案 |
+| 从旧快照升级后 Glass 顶栏参数失效 | `titleBlurRadius`、滚动行为及越界 API | 核对 [顶栏联动](advanced.md) 的新参数及位移来源 |
 | 模糊出现色块 / 玻璃看不到背景 | 捕获背景是否不透明、是否采样了自身 | 将背景与效果表面分离，检查 modifier 绘制顺序 |
 | 导航恢复失败 / 子路由无法序列化 | serialization 配置、路由层级、泛型推断 | 用超类型 `rememberNavBackStack<Route>`，验证实际恢复 |
 
 ## 从旧版迁移
 
 先锁定迁移起点和目标 release，只修改目标变更涉及的部分。逐项核查依赖拆分、包路径、`Super*` 等组件命名、弹层 `show` 参数类型、主题 Controller、导航 DSL 与视觉效果模块；这些是核查点，不是跨所有版本统一的一键替换规则。
+
+从 `0.9.4` 迁到 `0.9.5-beta01` 时，使用 `miuix-shader` 的项目应核查 `miuix-material` 及包名变更。iOS 在移动内容和 Scaffold 嵌套时出现 Insets 崩溃，可对照 Beta 中 [Scaffold 的修复](https://github.com/compose-miuix-ui/miuix/commit/95948685)，并用目标导航路径复现验证。
 
 每完成一个相对独立的迁移，运行受影响模块编译。删除旧依赖之前检查剩余调用者；项目同时需要旧组件或 Material 组件时，保留必要边界。
 

@@ -1,6 +1,6 @@
 # 回复、主动消息与媒体
 
-来源：[消息的发送](https://docs.astrbot.app/dev/star/guides/send-message.html)。整理日期：2026-11-04。
+来源：[消息的发送](https://docs.astrbot.app/dev/star/guides/send-message.html)。
 
 ## 回复当前事件
 
@@ -97,6 +97,8 @@ async def confirm_text(self, event: AstrMessageEvent, item_id: int):
 | 仅文字/链接回退，不触发按钮回调 | OneBot v11（NapCat/aiocqhttp）、Misskey、微信公众号、微信个人号（weixin_oc） |
 
 Satori 还受下游平台和客户端能力限制。需要兼容回退平台时，将同一业务能力接入 `fallback_text` 中可用的文字指令，如示例中的 `/example_confirm 42`。回调修改业务数据前按需求核验操作者和对象，处理重复点击；有效期不等于一次性执行保证。
+
+QQ 官方按钮回调回复含媒体时，`v4.30.0-alpha.1` 已包含适配器的媒体保留修复。旧实例出现纯文本回复时，先核对该修复是否存在，并分别验证群聊、私聊或频道等实际场景。 [上游修复 #10903](https://github.com/AstrBotDevs/AstrBot/pull/10903)
 
 ## 媒体构造
 

@@ -1,6 +1,6 @@
 # 等待用户后续消息
 
-来源：[会话控制](https://docs.astrbot.app/dev/star/guides/session-control.html)。整理日期：2026-10-23。基础接口要求 `>=3.4.36`。
+来源：[会话控制](https://docs.astrbot.app/dev/star/guides/session-control.html)。基础接口要求 `>=3.4.36`，示例使用 `v4.30.0-alpha.1` 新增的 `astrbot.api.util` 公开路径。旧版从 `astrbot.core.utils.session_waiter` 导入同名接口。
 
 `session_waiter` 适用于问答、确认、组队等需要接管下一条输入的流程。当前消息管道会在既有访问控制与预处理之后先分发给有效 waiter，被接管的消息不再进入普通插件和 Agent；不要为新版本重复实现旧的内置会话分发 handler。
 
@@ -9,7 +9,7 @@
 以下方法放在插件类内，并导入 `AstrMessageEvent`、`filter`：
 
 ```python
-from astrbot.core.utils.session_waiter import SessionController, session_waiter
+from astrbot.api.util import SessionController, session_waiter
 
 
 @filter.command("collect_name")
@@ -48,7 +48,7 @@ waiter 回调使用 `await reply.send(...)`，不可 `yield`。是否继续由 `
 - 默认会话区分依据为发送者 ID。涉及多平台、群与私聊同时交互时，按业务自定义 `SessionFilter`，避免串会话。
 
 ```python
-from astrbot.core.utils.session_waiter import SessionFilter
+from astrbot.api.util import SessionFilter
 
 
 class UserInSession(SessionFilter):

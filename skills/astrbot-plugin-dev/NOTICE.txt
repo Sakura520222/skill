@@ -13,6 +13,8 @@ agent metadata, a minimal configurable plugin example, and distribution tools.
 Modifications dated 2026-11-04: refreshed the pinned upstream snapshot and added
 message buttons, Decision Providers, sender/session selectors, and SSE closure
 guidance with explicit release-versus-master compatibility boundaries.
+Modifications dated 2026-11-18: updated source mapping and guidance for the
+Agent Runtime, conversation events, public imports and ChatUI views.
 This adapted work is distributed under AGPL-3.0-or-later, without warranty.
 All bundled instructions and executable helpers are provided in source form.
 

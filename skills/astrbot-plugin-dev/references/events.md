@@ -1,6 +1,6 @@
 # 指令、事件与钩子
 
-来源：[处理消息事件](https://docs.astrbot.app/dev/star/guides/listen-message-event.html)。整理日期：2026-10-23。
+来源：[处理消息事件](https://docs.astrbot.app/dev/star/guides/listen-message-event.html)。
 
 ## 读取消息
 
@@ -60,9 +60,11 @@ async def admin_status(self, event: AstrMessageEvent):
 | `on_agent_begin()` | `event, run_context` | Agent 开始 |
 | `on_using_llm_tool()` | `event, tool, tool_args` | 调用工具之前 |
 | `on_llm_tool_respond()` | `event, tool, tool_args, tool_result` | 工具调用之后 |
-| `on_agent_done()` | `event, run_context, resp` | Agent 完成，在 `on_llm_response` 之后 |
+| `on_agent_done()` | `event, run_context, resp` | 内置 Agent 退出时执行清理 |
 
-后四项官方标注适用于 `>4.23.1`，不能默认用于更早版本。请求与响应类型从 `astrbot.api.provider` 导入；Agent 的 `ContextWrapper`、`AstrAgentContext`、`FunctionTool` 等具体类型需按目标版本核对。
+旧版的 Agent 钩子支持范围按目标版本确认。请求与响应类型从 `astrbot.api.provider` 导入，Agent 类型导入见 [ai-tools.md](ai-tools.md)。
+
+在 `v4.30.0-alpha.1` 的内置 runner 中，`on_agent_done` 覆盖正常完成、异常、取消及步数耗尽。检查 `run_context.run_end_reason`、`run_context.run_error`，并允许 `resp` 为 `None`。需要在发送之前修改模型回复时用 `on_llm_response`，等待历史与输出处理完成时用 [run.result()](agent-runtime.md)。
 
 钩子需要回复时用 `await event.send(event.plain_result("..."))`，不使用 `yield`。装饰结果前检查 `event.get_result()` 是否存在，避免假定每个处理分支都有消息结果。
 
@@ -72,7 +74,7 @@ async def admin_status(self, event: AstrMessageEvent):
 
 ```python
 from astrbot.api.provider import ProviderRequest
-from astrbot.core.agent.message import TextPart
+from astrbot.api.agents import TextPart
 
 
 @filter.on_llm_request()
@@ -82,7 +84,7 @@ async def add_context(self, event: AstrMessageEvent, req: ProviderRequest):
     )
 ```
 
-不希望写入历史的内容可用 `TextPart(...).mark_as_temp()`，要求 `>=4.24.0`。较大的外部数据按需检索或提供工具，不必每轮全部追加。
+示例使用 `v4.30.0-alpha.1` 的公开导入，旧版从 `astrbot.core.agent.message` 导入 `TextPart`。`TextPart(...).mark_as_temp()` 自 `v4.24.0` 起可标记临时内容。使用新版事件存储时，该标记排除后续模型上下文，原文仍可能被持久化。较大的外部数据可按需检索或通过工具读取。
 
 ## 传播
 

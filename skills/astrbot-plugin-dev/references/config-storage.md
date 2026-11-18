@@ -1,6 +1,6 @@
 # 配置与持久化
 
-来源：[插件配置](https://docs.astrbot.app/dev/star/guides/plugin-config.html)、[插件存储](https://docs.astrbot.app/dev/star/guides/storage.html)。整理日期：2026-11-04。
+来源：[插件配置](https://docs.astrbot.app/dev/star/guides/plugin-config.html)、[插件存储](https://docs.astrbot.app/dev/star/guides/storage.html)。
 
 ## 自定义配置 Schema
 
@@ -22,9 +22,9 @@
 每个字段必须有 `type`。文档支持 `string`、`text`、`int`、`float`、`bool`、`object`、`list`、`dict`、`template_list`；另有 `>=4.13.0` 的 `file`。
 
 - `description`/`hint` 提供文案，`obvious_hint` 强调提示，`invisible` 隐藏字段。
-- `options` 保存真实值，`labels`、`subtitles` 按索引提供展示名与说明；不要翻译保存值。
+- 配置保存 `options` 中的选项值，`labels`、`subtitles` 按索引提供展示名与说明。`list` 搭配 `options` 为多选，添加 `render_type: "checkbox"` 可显示复选框组。
 - `slider` 仅用于 int/float，例如 `{"min": 1, "max": 60, "step": 1}`。
-- `object.items` 为嵌套字段；`dict.template_schema` 提供可选的编辑模板。
+- `object.items` 为嵌套字段。自 `v4.30.0-alpha.1` 可给分组配置 `collapsed: true`，使 WebUI 默认收起，根对象不能折叠。`dict.template_schema` 提供可选的编辑模板。
 - `template_list.templates` 为模板名到 `{name, items}` 的映射。保存后是对象列表，每个对象携带 `__template_key`。`display_item` 可指定列表标题使用的字符串字段（支持点号路径），`hide_hint_in_list` 控制折叠列表提示。
 - `file` 配置使用 `default: []` 和 `file_types` 扩展名列表。JSON 不能携带文档示例中的 `//` 注释。
 - `secret: true` 适用于字符串和字符串列表，只有 UI 遮罩效果，配置文件仍保存原值。不要打印整个配置或回显密钥。
@@ -98,10 +98,10 @@ KV 空间按插件隔离。会话/用户数据仍需在 key 中包含相应来�
 
 ```python
 from pathlib import Path
-from astrbot.core.utils.astrbot_path import get_astrbot_data_path
+from astrbot.api.util import get_astrbot_plugin_data_path
 
-data_dir = Path(get_astrbot_data_path()) / "plugin_data" / self.name
+data_dir = Path(get_astrbot_plugin_data_path()) / self.name
 data_dir.mkdir(parents=True, exist_ok=True)
 ```
 
-`self.name` 要求 `>=4.9.2`，更早版本需使用插件稳定名称。业务文件保存在该目录，避免插件重装覆盖数据；插件自带静态模板可以留在代码目录。文件名来自用户时限制到预期目录，并按并发写入需求选择锁/原子替换/数据库。
+`v4.30.0-alpha.1` 提供上面的公开导入。`v4.29.4` 可从 `astrbot.core.utils.astrbot_path` 导入同名函数，更旧版本按其源码核对。`self.name` 要求 `>=4.9.2`，更早版本使用插件稳定名称。业务文件保存在该目录，插件自带静态模板可以留在代码目录。校验用户提供的文件名，并按并发需求选择锁、原子替换或数据库。

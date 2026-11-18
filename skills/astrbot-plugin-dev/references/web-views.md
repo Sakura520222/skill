@@ -1,10 +1,10 @@
 # 插件可视化视图与 Web API
 
-来源：[插件可视化视图](https://docs.astrbot.app/dev/star/guides/plugin-pages.html)。整理日期：2026-11-04。该能力随新版本演进，先核对目标版本是否提供 `astrbot.api.web` 与 bridge；下方 SSE 关闭通知属于正式版发布后的主分支变化。
+先核对目标版本的 `astrbot.api.web` 和 bridge。ChatUI 消息和工作台宿主见 [chatui-views.md](chatui-views.md)。来源：[独立插件页面、共享 Bridge 和 Web API 文档](https://github.com/AstrBotDevs/AstrBot/tree/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views)。
 
 ## 结构和连接
 
-简单设置优先 `_conf_schema.json`；复杂面板使用 `views/<view_name>/index.html`，兼容旧的 `pages/`。只扫描一级子目录的 `index.html`，视图名使用普通目录名。
+简单设置优先 `_conf_schema.json`。独立页面入口是 `views/<view_name>/index.html`，兼容旧的 `pages/`。只扫描一级子目录的 `index.html`。支持新版视图声明的版本可在 `metadata.yaml` 填 `views`，默认 `target` 为 `plugin_page`，未声明的目录仍可自动发现。
 
 后端在构造函数注册带插件名前缀的路由：
 
@@ -74,7 +74,7 @@ SSE handler 返回 `stream_response(...)`，消息使用 `data: ...\n\n`。前�
 
 ### SSE 结束与错误通知
 
-`onClose` 来自 [2026-11-01 的上游变更](https://github.com/AstrBotDevs/AstrBot/commit/15e1b9996e94fad780bc207393ea13506d64b49e)，晚于 `v4.29.4` 正式版发布；目标必须包含该 bridge 实现，不能把所有版本字段为 4.29.4 的安装都视为已支持。
+`onClose` 来自 [v4.29.4 发布后的上游变更](https://github.com/AstrBotDevs/AstrBot/commit/15e1b9996e94fad780bc207393ea13506d64b49e)，已包含在 `v4.30.0-alpha.1` 标签中。
 
 ```javascript
 let subscriptionId;
@@ -110,6 +110,6 @@ window.addEventListener("beforeunload", () => {
 
 iframe 的 sandbox 允许脚本/表单/下载，不能读取父页面 DOM、Dashboard cookies 或 LocalStorage。需要 Dashboard 身份的操作走 bridge，后端仍验证输入。
 
-SDK 为 HTML 同步 `data-theme="light"`/`"dark"`；JS 可读 `getContext()?.isDark` 并订阅变化。标题和翻译放在 `.astrbot-plugin/i18n/<locale>.json` 的 `views.<view_name>`，详见 [i18n.md](i18n.md)。
+SDK 同步 HTML 的 `data-theme`。带 [主题色支持](https://github.com/AstrBotDevs/AstrBot/pull/11046) 的版本还会同步 CSS `color-scheme` 和 `--astrbot-color-*`，例如 `--astrbot-color-primary`、`--astrbot-color-text` 和 `--astrbot-color-background`。CSS 可直接使用这些变量，兼容旧 bridge 时提供默认值。JS 可通过 `onContext()` 监听变化。标题和翻译见 [i18n.md](i18n.md)。
 
 页面不出现先查目录和重载；bridge 未就绪查脚本加载顺序；API 404 查插件名前缀；SSE 查响应类型和消息空行。没有实际 WebUI 运行时不要声称页面验收通过。

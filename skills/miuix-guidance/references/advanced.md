@@ -1,6 +1,6 @@
 # 按需进阶
 
-仅阅读任务涉及的小节。以下描述来自 [固定主分支快照](sources.md)，导航与特效尤其需要检查消费方版本。
+以下描述来自 [固定发布快照](sources.md)，按任务选择相关小节并核对项目版本。
 
 ## 大标题与滚动
 
@@ -8,13 +8,15 @@
 
 使用 `LazyColumn(contentPadding = paddingValues)` 等方式处理 Scaffold 内容边距；根据是否需要滚动内容穿过透明顶栏决定 padding 放在内容还是容器上。不要同时重复应用同一 Insets。若另用官方 `overScrollVertical()`，官方示例要求它位于 nested scroll 绑定之前；同时核对所用版本的默认 overscroll，避免重复效果。
 
-来源：[TopAppBar](https://compose-miuix-ui.github.io/miuix/zh_CN/components/basic/topappbar)。
+在 `0.9.5-beta01` 中，Glass 顶栏的渐进模糊和阴影使用 `scrollBehavior.state.visualContentOffset`，它合并实际滚动与弹性位移。需要显式越界联动时，将 `overScrollVertical(onOffsetChanged = ...)` 放在 `nestedScroll` 之前，让回调更新 `scrollBehavior.state.overscrollOffset`，保留 `contentOffset` 记录实际滚动。列表已绑定该行为时，外层 `PullToRefresh` 无需再绑定。程序化滚动可以给 `GlassTopAppBar` 传 `visualContentOffset` 和 `isContentScrolled`。从较早 Glass 快照迁移时，`largeTitleBlurRadius` 改为 `titleBlurRadius`。
+
+来源：[TopAppBar](https://compose-miuix-ui.github.io/miuix/zh_CN/components/basic/topappbar)、[Beta GlassTopAppBar](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glasstopappbar.md)、[Beta 越界回弹](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/utils.md)。
 
 ## 图标
 
 基础 UI 仅附带少量图标。扩展集合添加 `miuix-icons`，同时导入 `top.yukonga.miuix.kmp.icon.MiuixIcons` 和所选图标的扩展属性，例如 `top.yukonga.miuix.kmp.icon.extended.Settings`。仅导入 `MiuixIcons` 不会自动引入所有扩展属性。
 
-当前文档支持 Light / Normal / Regular / Medium / Demibold；不要为只有某一种粗细的基础图标猜出其他变体。Glass 集合来自 `miuix-glass-icons` 和 `icon.glass`，使用 `MiuixIcons.Glass.*`。本次快照普通图标画布为 24 dp、Glass 为 28 dp，实际布局依目标版本核对。交互图标提供有意义的 `contentDescription`，装饰图标可为 null。
+当前文档列出 Light / Normal / Regular / Medium / Demibold，实际可用字重按对应图标表核对。Beta 的 Glass 集合来自 `miuix-glass-icons`，例如额外导入 `top.yukonga.miuix.kmp.icon.glass.Search` 后使用 `MiuixIcons.Glass.Search`。本次文档示例普通图标为 24 dp、Glass 为 28 dp。交互图标提供有意义的 `contentDescription`，装饰图标可为 null。
 
 来源：[图标系统](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/icons)。
 
@@ -36,7 +38,7 @@
 
 ## 模糊与玻璃
 
-本次快照 `miuix-blur` / `miuix-glass` 的 Android 构件最低 API 为 33。`if (SDK_INT >= 33)` 不会解决更低 minSdk 应用的 manifest 合并问题。若项目必须继续支持更低版本，选择兼容版本 / 不含该依赖的方案，或讨论功能与最低版本要求，不使用 manifest override 假装兼容。
+Android 实际玻璃和纹理模糊需要 API 33。Beta 的 Glass 支持低版本纯色回退，但传递依赖 Blur 仍触发 API 33 的清单合并检查。使用低版本回退前按 [接入指南](setup.md) 处理构件约束。
 
 正确采样关系：
 
@@ -46,11 +48,13 @@
 
 采样仅包含所在 composable 自身的绘制，不自动包含父级背景。背景区域应包含不透明底色，排除玻璃表面及其遮罩，防止透明色块与自采样。先验证普通不透明表面布局，再定位采样或 GPU 问题。
 
-本次快照 `GlassStyle`、`GlassMaterial`、`GlassShape` 等定义在 `top.yukonga.miuix.kmp.material`；不要按旧 `miuix-shader` 名称生成新代码。`glassPanel(backdrop = null)` 的默认 fallback 只裁剪，不自动填充背景，需要时显式提供可读的回退表面。
+Beta 将 `GlassStyle`、`GlassMaterial`、`GlassShape` 等定义放在 `top.yukonga.miuix.kmp.material`。`Modifier.glassPanel` 在 `fallback = null` 时只裁剪回退表面。需要纯色时显式传入填充；为 Overlay 的 `surface` 插槽提供玻璃表面时，可用 `glassSurface(backdrop, visuals)`，它从 `visuals.containerColor` 取回退色。
 
-大面积渐进模糊和多重离屏层有 GPU 成本，按实际滚动帧表现调整面积和层数。不要把不同效果的半径单位混用；查具体参数的 `Dp` / 像素类型。
+宽屏玻璃侧栏可用 `GlassNavigationRail`。父容器已处理安全区时，传 `defaultWindowInsetsPadding = false`。展开动画中可在布局阶段读取 `railState.progress` 给内容让出空间，同时保持采样背景铺满。工具栏和主操作分别见 `GlassFloatingToolbar` 与 `GlassFloatingActionButton`。这些组件属于 `top.yukonga.miuix.kmp.glass`。
 
-来源：[模糊](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/blur)、[玻璃](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/glass)、[材质](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/material)。
+按实际滚动表现调整渐进模糊面积和层数。Beta 的 `BlurDefaults.MaxBlurRadius` 是 `100f`（dp）。各接口参数仍要区分 `Dp` 与像素。
+
+来源：[Beta 模糊、玻璃与材质指南](https://github.com/compose-miuix-ui/miuix/tree/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide)、[Beta Glass 组件](https://github.com/compose-miuix-ui/miuix/tree/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass)。
 
 ## 连续圆角
 

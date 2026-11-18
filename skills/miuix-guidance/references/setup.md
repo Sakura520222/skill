@@ -1,6 +1,6 @@
 # 接入与版本选择
 
-本页基于固定主分支快照；来源、适用边界及复核方法见 [sources.md](sources.md)。
+本页以 `0.9.5-beta01` 发布构件为参考，来源与复核方法见 [sources.md](sources.md)。
 
 ## 依赖位置
 
@@ -28,7 +28,7 @@ dependencies {
 }
 ```
 
-第二项仅在需要 Preference 时添加。相关 Miuix 模块通常采用同一已发布版本；若某模块尚未发布该版本，应重新核对发布记录，不拼接猜测的版本。其他单平台构件后缀从实际 Maven 发布物确认；本次线上站点与主分支的 Wasm 后缀写法已有差异，不手工推导。
+第二项仅在需要 Preference 时添加。相关 Miuix 模块通常采用同一已发布版本。其他单平台坐标从 Maven 发布物确认，例如该 Beta 的 Wasm UI 为 `miuix-ui-wasm-js`。KMP 优先使用无后缀坐标。
 
 ## 按需求选择模块
 
@@ -37,19 +37,27 @@ dependencies {
 | 主题、基础控件、Scaffold、普通弹层 | `miuix-ui` | 包含 `miuix-core` 和 `miuix-squircle` |
 | 设置项、带标题摘要的开关 / 选择器 | `miuix-preference` | 依赖 `miuix-ui`，包名为 `preference` |
 | 扩展图标 | `miuix-icons` | 基础 UI 仅含少量核心图标 |
-| Glass 图标 | `miuix-glass-icons` | 可选独立模块，先确认目标版本是否有发布 |
-| 背景采样与模糊 | `miuix-blur` | 本次快照 Android 最低 API 33 |
+| Glass 图标 | `miuix-glass-icons` | 已发布于 `0.9.5-beta01`，可独立使用 |
+| 背景采样与模糊 | `miuix-blur` | Android AAR 最低 API 33 |
 | 连续圆角 | `miuix-squircle` | UI 已传递包含；低 API 有相应降级路径 |
-| 运行时着色器和材质定义 | `miuix-material` | 本次快照最低 API 24，具体绘制能力另判定 |
-| 玻璃表面与组件 | `miuix-glass` | Android 最低 API 33；传递引入 material、blur、ui |
+| 运行时着色器和材质定义 | `miuix-material` | Beta 中取代 `miuix-shader`。Android AAR 最低 API 24 |
+| 玻璃表面与组件 | `miuix-glass` | Beta 的 AAR 自身最低 API 24，传递引入 material、blur、ui |
 | Miuix 自有导航 | `miuix-nav` | 可独立使用，不要求替换项目现有导航 |
-| 桌面窗口与标题栏 | `miuix-window` | 仅 Desktop JVM；放在对应桌面 source set |
+| 桌面窗口与标题栏 | `miuix-window` | Beta 新模块，仅 Desktop JVM。放在对应桌面 source set |
 
-这里的模块清单反映固定主分支。旧版文档可能使用不同坐标、`Super*` 组件或不同包结构；维护旧版时遵循该版本，不进行无关迁移。
+稳定版 `0.9.4` 已提供 `miuix-nav`。需要 Glass、Material 或 Desktop Window 时，先确认项目可以接受 Beta，再选已发布的对应构件。旧版的 `Super*`、着色器和导航模块迁移按起点版本核对。
 
-## 不照搬上游构建环境
+## Android Glass 与 Blur 的最低版本
 
-固定快照 `BuildConfig.kt` 的库版本字段是 `0.9.4`，但这不能证明主分支新增 API 已包含在 Maven 的 `0.9.4` 中。它也不能证明该版本仍是最新发布。该文件的 compileSdk、JDK、Gradle 插件等配置属于上游开发工程，不等于所有消费方都必须复制。
+已发布的 `miuix-glass-android:0.9.5-beta01` 声明 API 24，仍传递依赖声明 API 33 的 `miuix-blur-android`。应用的 `minSdk` 为 24–32 时，正常合并清单依然会因 Blur 失败。Android API 31 起提供 RenderEffect，API 33 起提供 RuntimeShader，后者才是玻璃和纹理模糊所需能力。
+
+需要在 API 24–32 保留 Glass 组件的纯色回退时，上游文档给出在 app 清单的 `<uses-sdk>` 上添加 `tools:overrideLibrary="top.yukonga.miuix.kmp.blur"` 的做法（清单根节点声明 `xmlns:tools="http://schemas.android.com/tools"`）。这个做法只跳过该库的合并检查。避免在低 API 上直接调用 Blur 路径，并在实际最低 API 检查启动、纯色回退和受影响的组件。在 API 33+ 检查背景采样和模糊。若只需要常规 UI，可使用 `miuix-ui` 的不透明表面。
+
+来源：[Beta Glass 文档](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/glass.md)、[Glass Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-glass-android/0.9.5-beta01)、[Blur Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-blur-android/0.9.5-beta01)。
+
+## 工具链兼容性
+
+该标签的 `BuildConfig.LIBRARY_VERSION` 为 `0.9.5`，发布脚本根据构建参数附加 `-beta01`。消费项目使用发布坐标 `0.9.5-beta01`。上游自身的 compileSdk、JDK 和 Gradle 插件配置可用来排查问题，消费方要求以实际构件元数据和编译错误为准。
 
 版本不匹配时检查实际依赖解析、Kotlin 元数据 / Compose 编译器兼容性、模块发布目标和最低 SDK。先解决具体冲突，再做必要升级。离线时保留已知可用版本并说明不能确认新发布物。
 

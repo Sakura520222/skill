@@ -1,6 +1,6 @@
 # 主题、设置页与弹层
 
-下列示例按 [固定源码快照](sources.md) 核对了 Miuix 导入和参数，未在独立 Kotlin 工程中编译。接入前按项目版本复核；需要 `miuix-ui`、`miuix-preference` 以及项目的 Compose runtime / foundation。
+下列设置页已在独立 Desktop JVM 工程中使用 `0.9.5-beta01` 的发布构件编译通过。Android、iOS 和实际交互效果仍需在消费项目中验证。示例使用 `miuix-ui`、`miuix-preference` 和 Compose runtime / foundation。 [版本与来源](sources.md)
 
 ## 一个可交互的设置页
 
@@ -8,6 +8,7 @@
 
 ```kotlin
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -38,7 +39,7 @@ fun SettingsPage(
 
     MiuixTheme(controller = controller) {
         Scaffold(topBar = { SmallTopAppBar(title = "设置") }) { padding ->
-            Column(Modifier.fillMaxSize().padding(padding)) {
+            Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding)) {
                 SwitchPreference(
                     title = "消息通知",
                     summary = "允许应用显示消息提醒",

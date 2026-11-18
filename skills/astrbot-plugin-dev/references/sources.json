@@ -1,29 +1,29 @@
 {
-  "snapshot_date": "2026-11-04",
-  "retrieved_at_utc": "2026-11-04T11:10:02.097413+00:00",
+  "snapshot_date": "2026-11-18",
+  "retrieved_at_utc": "2026-11-18T01:37:26.398819+00:00",
   "repository": "AstrBotDevs/AstrBot",
-  "commit": "f926af99ec5f8bd85b64413f8bfad55da76ef73b",
-  "astrbot_version": "4.29.4",
+  "commit": "06fc50b43ea1c13093c91762f3b9361911362f9a",
+  "astrbot_version": "4.30.0-alpha.1",
   "license": "AGPL-3.0-or-later",
   "requested_url": "https://docs.astrbot.app/dev/star/plugin-new",
   "canonical_url": "https://docs.astrbot.app/dev/star/plugin-new.html",
   "sources": [
     {
       "path": "docs/zh/dev/star/plugin-new.md",
-      "blob_sha": "c4b09d3f574a42fb0a2ac3be2f2f3ae10d71a918",
+      "blob_sha": "cd052f6eaa441e95d095ae37910bcad6ef1f3589",
       "url": "https://docs.astrbot.app/dev/star/plugin-new.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/plugin-new.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/plugin-new.md",
       "references": [
         "quick-start.md",
         "publishing.md"
       ],
-      "sha256": "8b99a58da5bb7ca2142b00b71ad5002dd241e4677737c62961a66391fcf496e7"
+      "sha256": "4837c21ed5624beda59e8c12b87c575c3b66c1a3cfd892e73533a89fa8ae9d8a"
     },
     {
       "path": "docs/zh/dev/star/plugin-publish.md",
       "blob_sha": "2dc9c50fc46732d783bfa138ce29fcf130657e5e",
       "url": "https://docs.astrbot.app/dev/star/plugin-publish.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/plugin-publish.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/plugin-publish.md",
       "references": [
         "publishing.md"
       ],
@@ -33,7 +33,7 @@
       "path": "docs/zh/dev/star/guides/simple.md",
       "blob_sha": "9254d354b6652d752843664795d1dfa75f37f52c",
       "url": "https://docs.astrbot.app/dev/star/guides/simple.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/simple.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/simple.md",
       "references": [
         "quick-start.md"
       ],
@@ -41,19 +41,19 @@
     },
     {
       "path": "docs/zh/dev/star/guides/listen-message-event.md",
-      "blob_sha": "2f78173b44e7d2afb5a2e87ca3ca09b8cf374768",
+      "blob_sha": "fca6f19c05f2e5ca65a893e287863ac1d5dbad18",
       "url": "https://docs.astrbot.app/dev/star/guides/listen-message-event.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/listen-message-event.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/listen-message-event.md",
       "references": [
         "events.md"
       ],
-      "sha256": "b242cbe9858c5965af660de089aa88da2ce0642e8d2c2d1f1673cb0b7fb0efa9"
+      "sha256": "e2a8266b682311d3cf44823b1742fc57bdf5b003fb23cb5e9c96f93c14edb02c"
     },
     {
       "path": "docs/zh/dev/star/guides/send-message.md",
       "blob_sha": "4f8924398aa970004516af4c7ea9a4f5ae8e986c",
       "url": "https://docs.astrbot.app/dev/star/guides/send-message.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/send-message.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/send-message.md",
       "references": [
         "messaging.md"
       ],
@@ -61,59 +61,59 @@
     },
     {
       "path": "docs/zh/dev/star/guides/plugin-config.md",
-      "blob_sha": "23deef89598db21a947cbcc7da5eb86fd37479ed",
+      "blob_sha": "dc6731552e7e261d752fb824d0d30733949ff328",
       "url": "https://docs.astrbot.app/dev/star/guides/plugin-config.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/plugin-config.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-config.md",
       "references": [
         "config-storage.md"
       ],
-      "sha256": "1e4f61c51cba60598f749d1bc49bb09a0ab2f6926a9a225e6d1cef16f9d141b4"
+      "sha256": "85051fb5ff6c5111876e0bb10d61c83bb20a6979ba12ae0aca661aec69fe0b86"
     },
     {
       "path": "docs/zh/dev/star/guides/storage.md",
-      "blob_sha": "cd2166852a9b56f5961b5d1492e0499258f2177f",
+      "blob_sha": "fd25e54bc29f9b67e4f1d6ec0b78b8fdd5f53d7e",
       "url": "https://docs.astrbot.app/dev/star/guides/storage.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/storage.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/storage.md",
       "references": [
         "config-storage.md"
       ],
-      "sha256": "f4b9541ddf22207204b7714d8c1f98764690bb2cbf8bb5f172b95554cda39e21"
+      "sha256": "1fba2301cd6747c8bf531f5a838543a37144f037cadb3c294c669329433ff0e7"
     },
     {
       "path": "docs/zh/dev/star/guides/ai.md",
-      "blob_sha": "0283ff6b930b6a088b92f16086e0525632f90a9e",
+      "blob_sha": "6b9c7ad098db5e73516d10190f8a5d841887c0ed",
       "url": "https://docs.astrbot.app/dev/star/guides/ai.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/ai.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai.md",
       "references": [
         "ai-tools.md"
       ],
-      "sha256": "612a5edce645cdbd1b802de4978be5ad1e5c64284acd4e536f87b9af4ae18993"
+      "sha256": "792ec58719c90bdbcc40ef78d5b1d02926bd3669ae7dc6326d977990153d8db8"
     },
     {
       "path": "docs/zh/dev/star/guides/session-control.md",
-      "blob_sha": "9c804273020778a3762a736ad00d46717810d875",
+      "blob_sha": "a92c26161e54c082c542a837e83cf0b196d08f22",
       "url": "https://docs.astrbot.app/dev/star/guides/session-control.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/session-control.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/session-control.md",
       "references": [
         "session-control.md"
       ],
-      "sha256": "3f3f289ae457f85e5247df77045b969641c65fc1bad8f29e1ae2bfddf25df34d"
+      "sha256": "579f88b7159894b45359b512769fb9f5cda7c027e1223620b13f8d370ba24410"
     },
     {
       "path": "docs/zh/dev/star/guides/plugin-pages.md",
-      "blob_sha": "5a931cb2e1dadbded63c25e9da6985cb74293d4f",
+      "blob_sha": "96f3a60e662bcb6e080b75254edb867e584b9213",
       "url": "https://docs.astrbot.app/dev/star/guides/plugin-pages.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/plugin-pages.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-pages.md",
       "references": [
         "web-views.md"
       ],
-      "sha256": "41f5475c05d3ece37ca665d7c2702a341680f5b232392dfbd5ad7ae82595514b"
+      "sha256": "02e4ae43d1f276a7f3c3d42eac9360e0e30959d421a9c8ffd66a5590dcf9cb3e"
     },
     {
       "path": "docs/zh/dev/star/guides/plugin-i18n.md",
       "blob_sha": "849ee5ba2bcae4cbd34dfb6ae8e05fc3e2c3adfd",
       "url": "https://docs.astrbot.app/dev/star/guides/plugin-i18n.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/plugin-i18n.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-i18n.md",
       "references": [
         "i18n.md"
       ],
@@ -123,7 +123,7 @@
       "path": "docs/zh/dev/star/guides/html-to-pic.md",
       "blob_sha": "a6231884f5e7053426c793c603d78ba0ec1bfb76",
       "url": "https://docs.astrbot.app/dev/star/guides/html-to-pic.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/html-to-pic.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/html-to-pic.md",
       "references": [
         "rendering-platform.md"
       ],
@@ -131,19 +131,19 @@
     },
     {
       "path": "docs/zh/dev/star/guides/other.md",
-      "blob_sha": "2541b17fe925117a954f50375ceeefb227292ba6",
+      "blob_sha": "0e1fb0d91446e13f16d3190f3d02802d04fbde4b",
       "url": "https://docs.astrbot.app/dev/star/guides/other.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/star/guides/other.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/other.md",
       "references": [
         "rendering-platform.md"
       ],
-      "sha256": "2c2a2d9cc169644786ce0cc2451cc9b36ac2f26afd2ab8d2ffa3b0f3b44e1e80"
+      "sha256": "b6d87c9d29c5ef0db38bf42e3279716b290023513ebe448944472fd875e656c9"
     },
     {
       "path": "docs/zh/dev/plugin-market/2026-06-27.md",
       "blob_sha": "0f2957c88fe0b9279501ed0942fc7247035356a0",
       "url": "https://docs.astrbot.app/dev/plugin-market/2026-06-27.html",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/docs/zh/dev/plugin-market/2026-06-27.md",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/plugin-market/2026-06-27.md",
       "references": [
         "publishing.md"
       ],
@@ -151,21 +151,201 @@
     },
     {
       "path": "pyproject.toml",
-      "blob_sha": "61b3c00223b3a77105307568ccc9044c29d388c9",
-      "url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/pyproject.toml",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/pyproject.toml",
+      "blob_sha": "6eb35958a190868122b0d3f09b1e8ae21f222671",
+      "url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/pyproject.toml",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/pyproject.toml",
       "references": [
         "quick-start.md"
       ],
-      "sha256": "63e6fa0afa20ed2aec95432417caa50ba68c7788b42a7fb1f137d93e6087fcab"
+      "sha256": "96d25168246d4b24d39662b3cd94fa1f1ab21837c451cfeb63719d134747a56b"
     },
     {
       "path": "LICENSE",
       "blob_sha": "fb36daa15819fc4126289e9c21fd5c462e1aa898",
-      "url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/LICENSE",
-      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/f926af99ec5f8bd85b64413f8bfad55da76ef73b/LICENSE",
+      "url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/LICENSE",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/LICENSE",
       "references": [],
       "sha256": "ccf7d08f932af3e813848881731113afbb7c80d0fd6d958e8d319002bf344d02"
+    },
+    {
+      "path": "astrbot/api/agents.py",
+      "blob_sha": "0a9e4c26bc520b79b031b8f2899b3a4e03922483",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/api/agents.py",
+      "references": [
+        "ai-tools.md",
+        "agent-runtime.md",
+        "events.md"
+      ],
+      "sha256": "c5bf6639adabedbabe3e7c79475ee348395027c6823d8c63cb3a0daebf0622b3"
+    },
+    {
+      "path": "astrbot/api/util/__init__.py",
+      "blob_sha": "aae519250c2a6d49c9543b50f5cd6e88a5e622ff",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/api/util/__init__.py",
+      "references": [
+        "config-storage.md",
+        "session-control.md"
+      ],
+      "sha256": "2ad80279399fa723d1fa5b1da484d853433b4e5cde167bc51ea8ca855a2e9344"
+    },
+    {
+      "path": "astrbot/api/chatui.py",
+      "blob_sha": "8d9b57c2a011bb9b8f4ea5a076895f78c26fad63",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/api/chatui.py",
+      "references": [
+        "chatui-views.md"
+      ],
+      "sha256": "eb6decaae0481b33b5a89593383ee7c0100749b7fdb72dbc87ca7c000f8da684"
+    },
+    {
+      "path": "astrbot/api/event/filter/__init__.py",
+      "blob_sha": "be0d6c5ca2d46300dc27853c0f9be30786b3c346",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/api/event/filter/__init__.py",
+      "references": [
+        "events.md",
+        "chatui-views.md"
+      ],
+      "sha256": "e3315c94f56f45bc64fd03376c4cf432c375ba4ce15ae1e870e1964e43c8900c"
+    },
+    {
+      "path": "astrbot/core/agent_service.py",
+      "blob_sha": "eded841d89f4c9ac1e9e8bcf807cfa170b90b449",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/core/agent_service.py",
+      "references": [
+        "agent-runtime.md"
+      ],
+      "sha256": "56c670c2e7edc79ee1798d694e75d2214284040c874060fc7df6236da178e953"
+    },
+    {
+      "path": "astrbot/core/conversation_mgr.py",
+      "blob_sha": "ed68282cc36b332450f5a42bd055c9b4e6efc790",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/core/conversation_mgr.py",
+      "references": [
+        "ai-tools.md"
+      ],
+      "sha256": "f9090fcb3d4b6cc0ee60b327f556f653c587b4a9c385cec07066cf5434db670c"
+    },
+    {
+      "path": "astrbot/dashboard/plugin_page_bridge.js",
+      "blob_sha": "15774e74c0feea7e7c83c6fc22c9e6eceefc17e5",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/astrbot/dashboard/plugin_page_bridge.js",
+      "references": [
+        "web-views.md",
+        "chatui-views.md"
+      ],
+      "sha256": "24af10bfe318c78d98d54be77e6a3d89fb2b0bbc78b2fb9f01fe766efe1013e7"
+    },
+    {
+      "path": "docs/public/types/astrbot-plugin-view.d.ts",
+      "blob_sha": "ce00f9b15d1d19767b505153111b26d1ba45eaab",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/public/types/astrbot-plugin-view.d.ts",
+      "references": [
+        "web-views.md",
+        "chatui-views.md"
+      ],
+      "sha256": "16ae8622aa1ce0d56996d63c410c8c8d0057b2b255cf2103818fc501a20d6204"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/ai/models.md",
+      "blob_sha": "2a41abdc12cb2276fa94fadbd02f78ef32607069",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/models.md",
+      "references": [
+        "ai-tools.md"
+      ],
+      "sha256": "2eebe48cbc1d99fa892297ffe1d2ab30cc84ae19e4fe72b197604992195831ed"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/ai/tools.md",
+      "blob_sha": "4f9291b1506aa88556c92cbac1bcd60ab01c4538",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/tools.md",
+      "references": [
+        "ai-tools.md"
+      ],
+      "sha256": "942e7aa4af204ad58b26fee28c848c9635910353f6658cd5a1cecd9e0ae66500"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/ai/conversations.md",
+      "blob_sha": "41fdcecd8334a53ecc5ceb6406fedf038c0b93b9",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/conversations.md",
+      "references": [
+        "ai-tools.md"
+      ],
+      "sha256": "a12bcfd477a2c7adede677e13ca3b00fa001d38eae32ee7ebe1e9aace707206f"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/ai/other.md",
+      "blob_sha": "56bf244bae3f9e1237b0ad7e7f809a4033600084",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/other.md",
+      "references": [
+        "ai-tools.md"
+      ],
+      "sha256": "f308d2364f34c0b9447b14fbfc4730e817f9cc7dea395c6cd399c69c32b08fd6"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/ai/agent.md",
+      "blob_sha": "eee5bdb953e00b8f0968a798351281550cd11054",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/agent.md",
+      "references": [
+        "agent-runtime.md"
+      ],
+      "sha256": "939c2965a84253b4f142e61646035212a54c962adf2dfbd088be0cc8fdda94eb"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/index.md",
+      "blob_sha": "3ab83f62c1d04e4bcef7f750074a47cb46696c92",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/index.md",
+      "references": [
+        "chatui-views.md",
+        "web-views.md"
+      ],
+      "sha256": "0e19982651d007f333cea5a0a22933c0e34327dddc4f08d1e0bf41f16414a333"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/plugin-page.md",
+      "blob_sha": "20f6fbe9762e42f7abc031103bf73ad33ecdeeaa",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/plugin-page.md",
+      "references": [
+        "web-views.md"
+      ],
+      "sha256": "4b03a46b91f8bb4bc3a0dfa740263663447b3c3d98b58aee569181735e95d7c9"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/bridge.md",
+      "blob_sha": "509f5c91aa10e923b08d246b889da7597b481096",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/bridge.md",
+      "references": [
+        "web-views.md",
+        "chatui-views.md",
+        "i18n.md"
+      ],
+      "sha256": "60b8575b5a990d0d2010d11d447e7795bea8f7f4ba4524ce485d3906d11c8806"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/web-api.md",
+      "blob_sha": "3eb4a70a160a6740058e2af883b139a21a6d31a4",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/web-api.md",
+      "references": [
+        "web-views.md"
+      ],
+      "sha256": "f657197946cf04bd08a648877afc6709b295711fd05c5ea336776a0629b8cd96"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/chat-message.md",
+      "blob_sha": "b8fa30e591cf7ea1c64bebc1c5e7eb3d14a2a5b7",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/chat-message.md",
+      "references": [
+        "chatui-views.md"
+      ],
+      "sha256": "83aeebf3012bf8275a0c76cd9b31c7f43a094e6d3e92dc78e3fd6b0c8e814c47"
+    },
+    {
+      "path": "docs/zh/dev/star/guides/plugin-views/workbench.md",
+      "blob_sha": "4b51c9255f953996192238e362b7aee254d7a48d",
+      "source_url": "https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views/workbench.md",
+      "references": [
+        "chatui-views.md"
+      ],
+      "sha256": "431ce6d7c3bad2cbb462fbf3b4d99456354641a29c054e6594d3da6585faf32c"
     }
   ]
 }

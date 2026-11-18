@@ -1,6 +1,6 @@
 # 文转图与平台专用接口
 
-来源：[文转图](https://docs.astrbot.app/dev/star/guides/html-to-pic.html)、[杂项](https://docs.astrbot.app/dev/star/guides/other.html)。整理日期：2026-10-23。
+来源：[文转图](https://docs.astrbot.app/dev/star/guides/html-to-pic.html)、[杂项](https://docs.astrbot.app/dev/star/guides/other.html)。上游将杂项中的平台实例、协议端直调等列为可能移除的接口。优先用事件与消息接口，直接调用平台时按目标版本确认。
 
 ## 文本与 HTML 渲染
 

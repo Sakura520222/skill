@@ -65,9 +65,9 @@ Codex 中输入：
 
 ## astrbot-plugin-dev
 
-基于 [AstrBot 官方插件开发文档](https://docs.astrbot.app/dev/star/plugin-new.html)，附带按需读取的参考资料、最小插件示例、固定来源提交和可复现打包工具。技能版本：**1.1.0**；文档快照：**2026-11-04**，固定到 [上游 f926af99](https://github.com/AstrBotDevs/AstrBot/commit/f926af99ec5f8bd85b64413f8bfad55da76ef73b)。
+基于 AstrBot 官方插件开发文档，附带按需读取的参考资料、最小插件示例、固定来源提交和可复现打包工具。技能 **1.2.0** 的文档快照于 **2026-11-18** 核对，固定到 [上游 06fc50b4](https://github.com/AstrBotDevs/AstrBot/commit/06fc50b43ea1c13093c91762f3b9361911362f9a)。
 
-快照的 AstrBot 版本字段为 **4.29.4**，但包含该正式版发布后的主分支变化：SSE `onClose` 需包含 2026-11-01 的 bridge 更新；各项适用范围见参考资料，开发旧版插件时核对实际 API。
+Agent Runtime、对话事件存储和新版公开导入已包含在 `v4.30.0-alpha.1` 中。ChatUI 交互卡片及工作台需要该标签之后的实现。参考资料保留 `v4.29.4` 等旧版的兼容接口。 [Alpha 发布记录](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-alpha.1)
 
 覆盖内容：
 
@@ -77,16 +77,16 @@ Codex 中输入：
 - 配置 Schema、用户/会话选择器、敏感字段、KV 和持久化文件。
 - LLM 调用、Decision Provider、工具 schema、Agent、对话与人格。
 - 多轮会话等待、取消、超时及会话隔离。
-- 插件可视化视图、bridge、Web API、SSE 和国际化。
+- 独立插件页面、ChatUI 消息卡片与工作台、bridge、Web API、SSE 和国际化。
 - 文转图、平台专用接口及插件发布。
 
 入口见 [SKILL.md](skills/astrbot-plugin-dev/SKILL.md)。资料包含 API 的版本边界、官方来源和运行验证要求；技能不会安装 AstrBot 本体或模型服务。
 
 ## miuix-guidance
 
-基于 [Miuix 官方仓库](https://github.com/compose-miuix-ui/miuix)与[中文文档](https://compose-miuix-ui.github.io/miuix/zh_CN/guide/getting-started)，提供依赖选择、主题、设置页、弹层、导航、图标及模糊 / 玻璃 / 连续圆角的使用指导。技能版本：**1.0.0**；资料快照：**2026-11-12**，固定到 [96d613aa](https://github.com/compose-miuix-ui/miuix/commit/96d613aa42c485463c596886a2433a61c1bd7d6f)。
+提供 Miuix 的依赖选择、主题、设置页、弹层、导航、图标及模糊 / 玻璃 / 连续圆角指导。技能 **1.1.0** 的快照于 **2026-11-18** 核对，固定到已发布的 `0.9.5-beta01`。 [上游 6d2554a8](https://github.com/compose-miuix-ui/miuix/commit/6d2554a850b8960e2616c968263ff64beb5ffb03) · [Beta 发布记录](https://github.com/compose-miuix-ui/miuix/releases/tag/v0.9.5-beta01)
 
-快照来自主分支，其版本字段 `0.9.4` 不代表所有快照 API 已发布到该版本。技能要求以消费项目实际版本为准，处理文档站、主分支与 release 的差异。包含带完整导入的设置页示例；示例经过源码签名核对，未进行独立 Kotlin 编译或设备测试。
+保留稳定版 `0.9.4` 的依赖选择，补充 Beta 的 Glass、Material 和桌面窗口模块、顶栏滚动联动及 Android 传递依赖的 API 33 限制。使用时以消费项目实际解析的版本为准。
 
 安装到两个客户端：
 
