@@ -1,6 +1,6 @@
 # LLM、工具与对话
 
-聊天模型和自定义工具循环接口自 `v4.5.7` 起提供。需要复用现有会话的 Agent 配置时，见 [agent-runtime.md](agent-runtime.md)。来源：[模型、工具、会话与人格文档](https://github.com/AstrBotDevs/AstrBot/tree/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai)。
+聊天模型和自定义工具循环接口自 `v4.5.7` 起提供。需要复用现有会话的 Agent 配置时，见 [agent-runtime.md](agent-runtime.md)。来源：[模型、工具、会话与人格文档](https://github.com/AstrBotDevs/AstrBot/tree/90ba3270f09b857063da68908d80f742042067cd/docs/zh/dev/star/guides/ai)。
 
 ## 按当前会话选择模型
 

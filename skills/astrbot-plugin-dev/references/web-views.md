@@ -1,6 +1,6 @@
 # 插件可视化视图与 Web API
 
-先核对目标版本的 `astrbot.api.web` 和 bridge。ChatUI 消息和工作台宿主见 [chatui-views.md](chatui-views.md)。来源：[独立插件页面、共享 Bridge 和 Web API 文档](https://github.com/AstrBotDevs/AstrBot/tree/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views)。
+先核对目标版本的 `astrbot.api.web` 和 bridge。ChatUI 消息和工作台宿主见 [chatui-views.md](chatui-views.md)。来源：[独立插件页面、共享 Bridge 和 Web API 文档](https://github.com/AstrBotDevs/AstrBot/tree/90ba3270f09b857063da68908d80f742042067cd/docs/zh/dev/star/guides/plugin-views)。
 
 ## 结构和连接
 

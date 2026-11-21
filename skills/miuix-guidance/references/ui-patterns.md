@@ -1,6 +1,6 @@
 # 主题、设置页与弹层
 
-下列设置页已在独立 Desktop JVM 工程中使用 `0.9.5-beta01` 的发布构件编译通过。Android、iOS 和实际交互效果仍需在消费项目中验证。示例使用 `miuix-ui`、`miuix-preference` 和 Compose runtime / foundation。 [版本与来源](sources.md)
+下列设置页已在独立 Desktop JVM 工程中使用 `0.9.5-beta03` 的发布构件编译通过。Android、iOS 和实际交互效果仍需在消费项目中验证。示例使用 `miuix-ui`、`miuix-preference` 和 Compose runtime / foundation。 [版本与来源](sources.md)
 
 ## 一个可交互的设置页
 

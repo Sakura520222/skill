@@ -1,14 +1,14 @@
 # 来源与快照维护
 
-本技能首次于 **2026-10-23** 从 AstrBot 官方插件开发文档整理，最新核对日期为 **2026-11-18**。文档站和代码仓库的发布时间有差异，新增的 AI 子页和视图指南可直接查固定提交的 Markdown。 [官方文档入口](https://docs.astrbot.app/dev/star/plugin-new.html)
+本技能首次于 **2026-10-23** 从 AstrBot 官方插件开发文档整理，最新核对日期为 **2026-11-21**。文档站和代码仓库的发布时间有差异，新增的 AI 子页和视图指南可直接查固定提交的 Markdown。 [官方文档入口](https://docs.astrbot.app/dev/star/plugin-new.html)
 
-固定参考为 `AstrBotDevs/AstrBot` 主分支提交 `06fc50b43ea1c13093c91762f3b9361911362f9a`。项目版本字段为 **4.30.0-alpha.1**，Python 要求为 **>=3.12**。 [固定提交](https://github.com/AstrBotDevs/AstrBot/commit/06fc50b43ea1c13093c91762f3b9361911362f9a)
+固定参考为 `AstrBotDevs/AstrBot` 的 **v4.30.0-beta.1** 标签提交 `90ba3270f09b857063da68908d80f742042067cd`，Python 要求为 **>=3.12**。 [固定提交](https://github.com/AstrBotDevs/AstrBot/commit/90ba3270f09b857063da68908d80f742042067cd)
 
 | 上游版本 | 插件能力 |
 | --- | --- |
 | [v4.29.4](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.29.4) | 已有消息按钮、判断提供商和用户/会话选择器 |
 | [v4.30.0-alpha.1](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-alpha.1) | 包含 Agent Runtime、对话事件存储、新公开导入、分组默认折叠、SSE `onClose` 与主题色 |
-| [Alpha 标签后的快照](https://github.com/AstrBotDevs/AstrBot/compare/v4.30.0-alpha.1...06fc50b43ea1c13093c91762f3b9361911362f9a) | 增加 `view_result`、`ui_action`、消息卡片及工作台。项目版本字段沿用 Alpha 的值 |
+| [v4.30.0-beta.1](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-beta.1) | 包含 `view_result`、`ui_action`、消息卡片和工作台，内置执行器可在追加输入时将运行中的工具转入后台 |
 
 ## 覆盖
 

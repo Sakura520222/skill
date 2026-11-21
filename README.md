@@ -65,9 +65,9 @@ Codex 中输入：
 
 ## astrbot-plugin-dev
 
-基于 AstrBot 官方插件开发文档，附带按需读取的参考资料、最小插件示例、固定来源提交和可复现打包工具。技能 **1.2.0** 的文档快照于 **2026-11-18** 核对，固定到 [上游 06fc50b4](https://github.com/AstrBotDevs/AstrBot/commit/06fc50b43ea1c13093c91762f3b9361911362f9a)。
+基于 AstrBot 官方插件开发文档，附带按需读取的参考资料、最小插件示例、固定来源提交和可复现打包工具。技能 **1.3.0** 的文档快照于 **2026-11-21** 核对，固定到 `v4.30.0-beta.1`。 [上游 90ba3270](https://github.com/AstrBotDevs/AstrBot/commit/90ba3270f09b857063da68908d80f742042067cd)
 
-Agent Runtime、对话事件存储和新版公开导入已包含在 `v4.30.0-alpha.1` 中。ChatUI 交互卡片及工作台需要该标签之后的实现。参考资料保留 `v4.29.4` 等旧版的兼容接口。 [Alpha 发布记录](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-alpha.1)
+Agent Runtime、对话事件存储和新版公开导入自 `v4.30.0-alpha.1` 起可用。`v4.30.0-beta.1` 包含 ChatUI 交互卡片、工作台和追加输入时将工具调用转入后台的能力。参考资料保留 `v4.29.4` 等旧版的兼容接口。 [Beta 发布记录](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-beta.1)
 
 覆盖内容：
 
@@ -84,9 +84,9 @@ Agent Runtime、对话事件存储和新版公开导入已包含在 `v4.30.0-alp
 
 ## miuix-guidance
 
-提供 Miuix 的依赖选择、主题、设置页、弹层、导航、图标及模糊 / 玻璃 / 连续圆角指导。技能 **1.1.0** 的快照于 **2026-11-18** 核对，固定到已发布的 `0.9.5-beta01`。 [上游 6d2554a8](https://github.com/compose-miuix-ui/miuix/commit/6d2554a850b8960e2616c968263ff64beb5ffb03) · [Beta 发布记录](https://github.com/compose-miuix-ui/miuix/releases/tag/v0.9.5-beta01)
+提供 Miuix 的依赖选择、主题、设置页、弹层、导航、图标及模糊 / 玻璃 / 连续圆角指导。技能 **1.2.0** 的快照于 **2026-11-21** 核对，固定到已发布的 `0.9.5-beta03`。 [上游 3526cfe2](https://github.com/compose-miuix-ui/miuix/commit/3526cfe2ca0779c5a2eab99af8737a96c9a8a885) · [Beta 发布记录](https://github.com/compose-miuix-ui/miuix/releases/tag/v0.9.5-beta03)
 
-保留稳定版 `0.9.4` 的依赖选择，补充 Beta 的 Glass、Material 和桌面窗口模块、顶栏滚动联动及 Android 传递依赖的 API 33 限制。使用时以消费项目实际解析的版本为准。
+保留稳定版 `0.9.4` 的依赖选择，补充 Beta 的玻璃输入框与搜索浮层、滚动条和桌面窗口回调迁移，以及 Compose Multiplatform `1.13.0-rc01` 和 Android Blur 的 API 33 要求。
 
 安装到两个客户端：
 

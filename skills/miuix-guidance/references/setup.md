@@ -1,6 +1,6 @@
 # 接入与版本选择
 
-本页以 `0.9.5-beta01` 发布构件为参考，来源与复核方法见 [sources.md](sources.md)。
+本页以 `0.9.5-beta03` 发布构件为参考，来源与复核方法见 [sources.md](sources.md)。
 
 ## 依赖位置
 
@@ -37,7 +37,7 @@ dependencies {
 | 主题、基础控件、Scaffold、普通弹层 | `miuix-ui` | 包含 `miuix-core` 和 `miuix-squircle` |
 | 设置项、带标题摘要的开关 / 选择器 | `miuix-preference` | 依赖 `miuix-ui`，包名为 `preference` |
 | 扩展图标 | `miuix-icons` | 基础 UI 仅含少量核心图标 |
-| Glass 图标 | `miuix-glass-icons` | 已发布于 `0.9.5-beta01`，可独立使用 |
+| Glass 图标 | `miuix-glass-icons` | 自 `0.9.5-beta01` 发布，可独立使用 |
 | 背景采样与模糊 | `miuix-blur` | Android AAR 最低 API 33 |
 | 连续圆角 | `miuix-squircle` | UI 已传递包含；低 API 有相应降级路径 |
 | 运行时着色器和材质定义 | `miuix-material` | Beta 中取代 `miuix-shader`。Android AAR 最低 API 24 |
@@ -49,15 +49,15 @@ dependencies {
 
 ## Android Glass 与 Blur 的最低版本
 
-已发布的 `miuix-glass-android:0.9.5-beta01` 声明 API 24，仍传递依赖声明 API 33 的 `miuix-blur-android`。应用的 `minSdk` 为 24–32 时，正常合并清单依然会因 Blur 失败。Android API 31 起提供 RenderEffect，API 33 起提供 RuntimeShader，后者才是玻璃和纹理模糊所需能力。
+已发布的 `miuix-glass-android:0.9.5-beta03` 声明 API 24，仍传递依赖声明 API 33 的 `miuix-blur-android`。应用的 `minSdk` 为 24–32 时，正常合并清单依然会因 Blur 失败。Android API 31 起提供 RenderEffect，API 33 起提供 RuntimeShader，后者才是玻璃和纹理模糊所需能力。
 
 需要在 API 24–32 保留 Glass 组件的纯色回退时，上游文档给出在 app 清单的 `<uses-sdk>` 上添加 `tools:overrideLibrary="top.yukonga.miuix.kmp.blur"` 的做法（清单根节点声明 `xmlns:tools="http://schemas.android.com/tools"`）。这个做法只跳过该库的合并检查。避免在低 API 上直接调用 Blur 路径，并在实际最低 API 检查启动、纯色回退和受影响的组件。在 API 33+ 检查背景采样和模糊。若只需要常规 UI，可使用 `miuix-ui` 的不透明表面。
 
-来源：[Beta Glass 文档](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/glass.md)、[Glass Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-glass-android/0.9.5-beta01)、[Blur Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-blur-android/0.9.5-beta01)。
+来源：[Beta Glass 文档](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/glass.md)、[Glass Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-glass-android/0.9.5-beta03)、[Blur Android 发布构件](https://central.sonatype.com/artifact/top.yukonga.miuix.kmp/miuix-blur-android/0.9.5-beta03)。
 
 ## 工具链兼容性
 
-该标签的 `BuildConfig.LIBRARY_VERSION` 为 `0.9.5`，发布脚本根据构建参数附加 `-beta01`。消费项目使用发布坐标 `0.9.5-beta01`。上游自身的 compileSdk、JDK 和 Gradle 插件配置可用来排查问题，消费方要求以实际构件元数据和编译错误为准。
+该标签的 `BuildConfig.LIBRARY_VERSION` 为 `0.9.5`，发布脚本附加 `-beta03` 得到发布坐标。自 `0.9.5-beta02` 起，上游使用 Compose Multiplatform `1.13.0-rc01` 的 API。从 `beta01` 升级时，对齐实际解析的 Compose 依赖，并重新编译受影响的目标。上游自身的 compileSdk、JDK 和 Gradle 插件配置可用来排查问题，消费方要求以实际构件元数据和编译结果为准。 [上游版本目录](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/gradle/libs.versions.toml)
 
 版本不匹配时检查实际依赖解析、Kotlin 元数据 / Compose 编译器兼容性、模块发布目标和最低 SDK。先解决具体冲突，再做必要升级。离线时保留已知可用版本并说明不能确认新发布物。
 

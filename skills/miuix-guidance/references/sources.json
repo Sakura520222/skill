@@ -1,7 +1,7 @@
 {
-  "snapshot_date": "2026-11-18",
+  "snapshot_date": "2026-11-21",
   "repository": "compose-miuix-ui/miuix",
-  "commit": "6d2554a850b8960e2616c968263ff64beb5ffb03",
+  "commit": "3526cfe2ca0779c5a2eab99af8737a96c9a8a885",
   "upstream_version_field": "0.9.5",
   "release_verified": true,
   "license": "Apache-2.0",
@@ -10,325 +10,415 @@
     {
       "path": "docs/zh_CN/guide/getting-started.md",
       "blob_sha": "a2da98cc95308f6d72d7551aae102380a6ee4b39",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/getting-started.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/getting-started.md",
       "references": [
         "setup.md",
         "ui-patterns.md",
         "troubleshooting.md"
       ],
-      "sha256": "3516c712ff13ca490f01ce427513969661df569970a1548520a050fc36c761f4"
+      "sha256": "3516c712ff13ca490f01ce427513969661df569970a1548520a050fc36c761f4",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/theme.md",
       "blob_sha": "4722992db896a6e185f2e60af515a21956fd56d3",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/theme.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/theme.md",
       "references": [
         "ui-patterns.md",
         "troubleshooting.md"
       ],
-      "sha256": "3359014fd534dcf8df12879cf8f3e3bc0e1890718f26d5de113637d165839b26"
+      "sha256": "3359014fd534dcf8df12879cf8f3e3bc0e1890718f26d5de113637d165839b26",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/multiplatform.md",
       "blob_sha": "039572dfa4912dcb352dfd7af33a3cf8fc8cf5ee",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/multiplatform.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/multiplatform.md",
       "references": [
         "setup.md"
       ],
-      "sha256": "53f05fed751f19c558b0fdae3e0e0cf83cc1e247120ba09bfc82d2a1fc4df2db"
+      "sha256": "53f05fed751f19c558b0fdae3e0e0cf83cc1e247120ba09bfc82d2a1fc4df2db",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/icons.md",
       "blob_sha": "b6f5bb5b8a5d652409981b3c11c4087b3e4e2d66",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/icons.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/icons.md",
       "references": [
         "advanced.md",
         "troubleshooting.md"
       ],
-      "sha256": "10087fcb4cdac14a45c85707091770d0cc741fea1e6f0778480adc50296491ca"
+      "sha256": "10087fcb4cdac14a45c85707091770d0cc741fea1e6f0778480adc50296491ca",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/blur.md",
       "blob_sha": "34f66039a779d50c29f7ede053e2d1395fc763f2",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/blur.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/blur.md",
       "references": [
         "advanced.md",
         "troubleshooting.md"
       ],
-      "sha256": "ec4fdbeab04e6b0a587794fa39c85faebff8b5891e6bba311cc51e9fb8c71a9b"
+      "sha256": "ec4fdbeab04e6b0a587794fa39c85faebff8b5891e6bba311cc51e9fb8c71a9b",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/material.md",
       "blob_sha": "a3387102243c363b33ecc3e29671ea93d0215ba2",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/material.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/material.md",
       "references": [
         "setup.md",
         "advanced.md"
       ],
-      "sha256": "d50d7e9e82e89789579431dc9989b6aec866216a6ee889affbda4670ca634c2f"
+      "sha256": "d50d7e9e82e89789579431dc9989b6aec866216a6ee889affbda4670ca634c2f",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/glass.md",
       "blob_sha": "676751ee8e96f306cd5132f1734992f6c05f94f2",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/glass.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/glass.md",
       "references": [
         "setup.md",
         "advanced.md"
       ],
-      "sha256": "03f4bc44ca344317cf1b82ffce24ede42630e1cb00d21b8aaf93b9ecf1be9463"
+      "sha256": "03f4bc44ca344317cf1b82ffce24ede42630e1cb00d21b8aaf93b9ecf1be9463",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/squircle.md",
       "blob_sha": "04182f0b431bbfe65d4b9feae2a3f20dc6b5affc",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/squircle.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/squircle.md",
       "references": [
         "advanced.md"
       ],
-      "sha256": "34eb700fa022a5626b79642f89b9c58b9ebcc79b087ff09f8cc46a25dde33ef0"
+      "sha256": "34eb700fa022a5626b79642f89b9c58b9ebcc79b087ff09f8cc46a25dde33ef0",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/miuix-nav.md",
       "blob_sha": "03bfe28f3d7498c6c623213be63754399c92cb54",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/miuix-nav.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/miuix-nav.md",
       "references": [
         "advanced.md",
         "troubleshooting.md"
       ],
-      "sha256": "4ed6cc6fb9d260212049eb6c235a873611ad9e081d0ba253fcbe929d432de233"
+      "sha256": "4ed6cc6fb9d260212049eb6c235a873611ad9e081d0ba253fcbe929d432de233",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/basic/scaffold.md",
       "blob_sha": "605b92941fc339fcdbc0ccc92098474895e7b916",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/basic/scaffold.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/basic/scaffold.md",
       "references": [
         "ui-patterns.md",
         "troubleshooting.md"
       ],
-      "sha256": "553dd2c58299758e030e4687ddd0892a999b86e8c82d2531dd031fca741ec771"
+      "sha256": "553dd2c58299758e030e4687ddd0892a999b86e8c82d2531dd031fca741ec771",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/basic/topappbar.md",
-      "blob_sha": "1947659fd308469f7e6a5a4c166eed6c7252976c",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/basic/topappbar.md",
+      "blob_sha": "1e2139c7b87f1da3407f4934ccdf659e9017c7d1",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/basic/topappbar.md",
       "references": [
         "advanced.md",
         "ui-patterns.md"
       ],
-      "sha256": "722cb5662674e115bfb60ce922b73c07acfad8301d48d0fce55c61a3dfbb44fc"
+      "sha256": "41ec3048a045970a5a5045eccd30c7eadd6ead7c9bd8a77bc6ce61be9df0f473",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/basic/overlaydialog.md",
       "blob_sha": "cd4e2cc0d5164a805ae11f2d74085cbcc9baca67",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/basic/overlaydialog.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/basic/overlaydialog.md",
       "references": [
         "ui-patterns.md",
         "troubleshooting.md"
       ],
-      "sha256": "092bf4430340c4c3cd5646efb5e49e3b67f95d398f0cf5f88ea73a652c1882c6"
+      "sha256": "092bf4430340c4c3cd5646efb5e49e3b67f95d398f0cf5f88ea73a652c1882c6",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/basic/windowdialog.md",
       "blob_sha": "5eb91595b7a3a9597f113140b8a7c2778f948f65",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/basic/windowdialog.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/basic/windowdialog.md",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "d5dcce9a4a2ca144c0d00b68f6dbfb47a8e38f1eaeebadfa38285bcaad8bab6d"
+      "sha256": "d5dcce9a4a2ca144c0d00b68f6dbfb47a8e38f1eaeebadfa38285bcaad8bab6d",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/extended/switchpreference.md",
       "blob_sha": "d7572dee74e2ae613799958f42a059a3abb2371f",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/extended/switchpreference.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/extended/switchpreference.md",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "c7cc8d9153f9e6e8fd40af50c5aa5cd42f35a08cafdfb73d724c2fcb0f9b2047"
+      "sha256": "c7cc8d9153f9e6e8fd40af50c5aa5cd42f35a08cafdfb73d724c2fcb0f9b2047",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Scaffold.kt",
-      "blob_sha": "de646a02e183b92891ab461609095de50cb0f457",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Scaffold.kt",
+      "blob_sha": "f1e4455519a7bd3a76ca3b16105a219a10dd0f72",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Scaffold.kt",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "ca6669190d463ae5a4c74136370d5a830360fa92bc4117675736926bcf348c72"
+      "sha256": "07e0ffaedb78bf0ac4d3272c4580492b2e3096b4c6f8404a152de23aa8b8e7d5",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Button.kt",
       "blob_sha": "28629abccf344cb649278cbf858ff2f3a82b10a1",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Button.kt",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/Button.kt",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "1bd0eefc46d063344fc1979e9302df6a60058f759dd52ab8fef7c8bab1d3e0ba"
+      "sha256": "1bd0eefc46d063344fc1979e9302df6a60058f759dd52ab8fef7c8bab1d3e0ba",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/ThemeController.kt",
-      "blob_sha": "fdb6c38ad41d6f423b03bdc3371026d61a48cdce",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/ThemeController.kt",
+      "blob_sha": "96adfabd2de17a2091b87d91768370e77cfda798",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/ThemeController.kt",
       "references": [
         "ui-patterns.md",
         "troubleshooting.md"
       ],
-      "sha256": "4c1d2b911c1ac269a515321f140c3226b085eaacf63dc9673ab938068826a77f"
+      "sha256": "91146746795ce332d187c12399d29ffcd40eefd6662433fe8f18fe786e6e5c8b",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/MiuixTheme.kt",
       "blob_sha": "8b4a7c90c106dcec04666697f5655688cbd17811",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/MiuixTheme.kt",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/theme/MiuixTheme.kt",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "4ff27049c7f096aa41e44ec58ef54b316ce40a5c01c7bf8663f82b51c6ae28d2"
+      "sha256": "4ff27049c7f096aa41e44ec58ef54b316ce40a5c01c7bf8663f82b51c6ae28d2",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/overlay/OverlayDialog.kt",
       "blob_sha": "a2f38fc47ef2a9644de2180d8e8b87a08e91d048",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/overlay/OverlayDialog.kt",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/overlay/OverlayDialog.kt",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "000e7b9ee1b275bf5392737fa1a0c0d6c218c6e385aac4bb557f63e03d37d4ae"
+      "sha256": "000e7b9ee1b275bf5392737fa1a0c0d6c218c6e385aac4bb557f63e03d37d4ae",
+      "url": ""
     },
     {
       "path": "miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/SwitchPreference.kt",
-      "blob_sha": "fa46100facc0c0a8b20592c37d832d1dc8a3402c",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/SwitchPreference.kt",
+      "blob_sha": "13f3b03c2f0d8a839d23fe5943c769e264443ce2",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/SwitchPreference.kt",
       "references": [
         "ui-patterns.md"
       ],
-      "sha256": "1f37665ed4db3dc6bda9a279013c340628733a8d31fec4ef6c82c51569d1e474"
+      "sha256": "6b0099b90e6b51577a744cd99c96172383b7cd7df0fc71f6ca93b28798657a51",
+      "url": ""
     },
     {
       "path": "build-logic/src/main/kotlin/BuildConfig.kt",
       "blob_sha": "ac20933b18e4efab4f60e633a7d72265ca28e122",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/build-logic/src/main/kotlin/BuildConfig.kt",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/build-logic/src/main/kotlin/BuildConfig.kt",
       "references": [
         "setup.md"
       ],
-      "sha256": "f0478f3ced392a98bb0ea26475a5944c8ce0ebff4bbb8f5f7a3b044c7b62dcc8"
+      "sha256": "f0478f3ced392a98bb0ea26475a5944c8ce0ebff4bbb8f5f7a3b044c7b62dcc8",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/guide/utils.md",
-      "blob_sha": "e6e7c1eb9f9055685844b4fd7a0faf4f867f7377",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/utils.md",
+      "blob_sha": "d305d042881fb5a7a880c31fe2dd6aacb3033419",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/utils.md",
       "references": [
         "advanced.md"
       ],
-      "sha256": "ba5b003bd6d1b920580e8e36848bd27887d0052dea2238b507ddaf13e55e27e5"
+      "sha256": "e41bb8594ff0e6b36661c0404be86ccb8136a6dd3a0694321baa4a55f8bf936c",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/glass/glasstopappbar.md",
-      "blob_sha": "d0daf1d645fdb70da5ac443c4240ce1de283abc4",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glasstopappbar.md",
+      "blob_sha": "6c485d61d51fa12f6799a338618c021fcd00dbba",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasstopappbar.md",
       "references": [
         "advanced.md",
         "troubleshooting.md"
       ],
-      "sha256": "413d7723e85ce6954652f9b95965be103a950c3ccb27bfc0ce5e8a67f0215789"
+      "sha256": "db4faa568cd61e2d21c1bd1cfdc3c3d8e338f135b56a33bc1d18b10387003d31",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/glass/glassnavigationrail.md",
-      "blob_sha": "d41b416abfa832f6916a4416a8ab6eae977353d6",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glassnavigationrail.md",
+      "blob_sha": "be25d212cc5265ec12e2068ec188d06250b86422",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glassnavigationrail.md",
       "references": [
         "advanced.md"
       ],
-      "sha256": "ebbaaf23a003e3e67692510e98c9f7c94b2d4d7457888e3b231550312e13d01d"
+      "sha256": "2e7cc4adcb455d31d2253801476c8aa94ab4adba882302263c1f9fdb19eef0d8",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/glass/glassfloatingactionbutton.md",
-      "blob_sha": "a8dce8e8c5fd785c9c8534e8cb8e7d1c46138a00",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glassfloatingactionbutton.md",
+      "blob_sha": "0d1a32823e14cf71f76330dfa329a6d54a7506fa",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glassfloatingactionbutton.md",
       "references": [
         "advanced.md"
       ],
-      "sha256": "7dedd40946ce96597a65069a2589b461d3dd5a395ca69ebac966037b2a1c1c4a"
+      "sha256": "ef651e56673df62540cdc0999c6147707eabcd8513558a84d76747d6ecdd1bee",
+      "url": ""
     },
     {
       "path": "docs/zh_CN/components/glass/glassfloatingtoolbar.md",
       "blob_sha": "fa00b3e2676c308f3110fb3ed7637727f58d8c63",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glassfloatingtoolbar.md",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glassfloatingtoolbar.md",
       "references": [
         "advanced.md"
       ],
-      "sha256": "d6569ca11c1fb0178f94026c68534b133e4ce822b21f42535773b0a191e96bc4"
+      "sha256": "d6569ca11c1fb0178f94026c68534b133e4ce822b21f42535773b0a191e96bc4",
+      "url": ""
     },
     {
       "path": "build-logic/src/main/kotlin/module.publication.gradle.kts",
       "blob_sha": "3278b86fef1c55babb569f761605a800a59b0ca3",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/build-logic/src/main/kotlin/module.publication.gradle.kts",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/build-logic/src/main/kotlin/module.publication.gradle.kts",
       "references": [
         "setup.md"
       ],
-      "sha256": "2d96bb83f04d024c8271b89e076014b2c19a177dc34799d1fa11dee50f172ccc"
+      "sha256": "2d96bb83f04d024c8271b89e076014b2c19a177dc34799d1fa11dee50f172ccc",
+      "url": ""
     },
     {
       "path": "miuix-glass/build.gradle.kts",
-      "blob_sha": "1daa2c3145380aaa3b41c3239261d58316cdf6cd",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-glass/build.gradle.kts",
+      "blob_sha": "bd2fb09a64d6d742ca0bdaf550adb9f1ff6ce1d7",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-glass/build.gradle.kts",
       "references": [
         "setup.md",
         "troubleshooting.md"
       ],
-      "sha256": "1b46ca40d31da476a659c2d5a800d6991a5a89c2623faf447bc758c3cc415ec6"
+      "sha256": "54979bf68d0267ccdafc0990e1266ba83afe913621e741ed4f362a54d89edf48",
+      "url": ""
     },
     {
       "path": "miuix-blur/build.gradle.kts",
-      "blob_sha": "e73cdc9beb14a7c03f2377680dc5909c8b82ce1f",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-blur/build.gradle.kts",
+      "blob_sha": "1ac617fd3a0ef8230f563e5b0048afedc0a19d00",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-blur/build.gradle.kts",
       "references": [
         "setup.md",
         "troubleshooting.md"
       ],
-      "sha256": "5978788ab1088243ccc3a31e63780002adce7c1b7e6383082e29d2167602eb5f"
+      "sha256": "ee75ef06ea32b7caa3fe1da0845017688452ea0bb8587093c3cc132de9c71595",
+      "url": ""
     },
     {
       "path": "miuix-window/build.gradle.kts",
-      "blob_sha": "b5fe36e42919f95fcadc14eb8d58cb59257ca607",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-window/build.gradle.kts",
+      "blob_sha": "7a66c976135c19189bfc1a5faa0e11ed56484a07",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-window/build.gradle.kts",
       "references": [
         "setup.md"
       ],
-      "sha256": "5de001d29e19627b5a0b1495ad4a8a2b94ee6b21578abf07583ea7425e589a3b"
+      "sha256": "117c105115a1ae3368a2142bbe9d254bc16f4dac1811928418d8a909c6c8568b",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/TopAppBar.kt",
-      "blob_sha": "400bc3cf7ed4c251e74fe46bb76d9e6abc05704f",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/TopAppBar.kt",
+      "blob_sha": "0b23d2c6229701458e1eb87f32c9c59839b9b2c5",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/TopAppBar.kt",
       "references": [
         "ui-patterns.md",
         "advanced.md"
       ],
-      "sha256": "b53437a7949fca1b8907030cba207cdbd0c69589f69545ab6dbc373d13f90949"
+      "sha256": "b2f0a89fb6abbdb686cb1823517e098b7490c324c81838974ddb4c4481081d4a",
+      "url": ""
     },
     {
       "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/utils/Overscroll.kt",
-      "blob_sha": "0a78eb007a5e18588199db5df9b9879781d4c25d",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/utils/Overscroll.kt",
+      "blob_sha": "d4dbb00d10bdbc3d7ce9f853cd5e2d42fdd871b4",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/utils/Overscroll.kt",
       "references": [
         "advanced.md"
       ],
-      "sha256": "bd7a4c458e008dcad13c149beee40cf6672e1860c2111b1ae234a718153b643e"
+      "sha256": "595d42f510038978fce974c3d2052e87016d0ab0c727be614754c438368ca947",
+      "url": ""
     },
     {
       "path": "miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassPanel.kt",
-      "blob_sha": "91950cbbe11b3f72db9597db4012cd4540d92e5c",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassPanel.kt",
+      "blob_sha": "97fb4e4e69523ddcad26b0d6b042f72a82f9748e",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassPanel.kt",
       "references": [
         "advanced.md"
       ],
-      "sha256": "b89623f8dcc3d4b68049822d85533376467e54e9273bbc3a98c5669f27e67341"
+      "sha256": "400fedf214863a2eeffd97395429cf8775679f5b9c2a6847950be968c5bcb12f",
+      "url": ""
     },
     {
       "path": "miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassSurface.kt",
-      "blob_sha": "ec5eebcd7e877c843a1f364ab31725c1dc5ccf02",
-      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassSurface.kt",
+      "blob_sha": "d9dd4f50e981e134019e4ec0f5825cee6b77c57c",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassSurface.kt",
       "references": [
         "advanced.md"
       ],
-      "sha256": "5a701bda4a51f73602c9af7d832bdc9b87dbd537bbbaad75e2d9713bf3938b2f"
+      "sha256": "fb9466499f0928d9273f53e9add613d4d95ada57d056485c18647793b624e0e6",
+      "url": ""
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "blob_sha": "2c500a31886854cc0740696f97d187f45b15899f",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/gradle/libs.versions.toml",
+      "references": [
+        "setup.md"
+      ],
+      "sha256": "7eb25bb5112a100a32b487d7d7f49e626465f501be124340db360a761687a059"
+    },
+    {
+      "path": "docs/zh_CN/guide/miuix-window.md",
+      "blob_sha": "1e2acd46dc67a8eb32766857d3a9767a97bbe699",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/miuix-window.md",
+      "references": [
+        "troubleshooting.md"
+      ],
+      "sha256": "0c05d1645415cf9ef59ea98ee293016eef91caa5241d54ef695893aa4403de5b"
+    },
+    {
+      "path": "docs/zh_CN/components/glass/glasstextfield.md",
+      "blob_sha": "3019db8d0ba134b832e87cba016a7db354883d01",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasstextfield.md",
+      "references": [
+        "advanced.md"
+      ],
+      "sha256": "57dd1ab4ab26a10fa302ef821083cf9c20a1d85e3b818bbb0dfbb55f20fb6368"
+    },
+    {
+      "path": "docs/zh_CN/components/glass/glasssearchoverlay.md",
+      "blob_sha": "3b1c9e84e2e26c1a1b66f92f5441050395c8f449",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasssearchoverlay.md",
+      "references": [
+        "advanced.md"
+      ],
+      "sha256": "ef82ebefa6e988646b2bccd0ff2b72db44b817decc39ae58de339a6c2e2875e5"
+    },
+    {
+      "path": "miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/ScrollBar.kt",
+      "blob_sha": "7bae3ab33e95ffb0b241ad54e9f1bbb67d0e2d00",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/ScrollBar.kt",
+      "references": [
+        "advanced.md",
+        "troubleshooting.md"
+      ],
+      "sha256": "b6ae8fee97e41939767b25ec16936d965b4afbd3b7892d0995dfaf86241af2e0"
+    },
+    {
+      "path": "miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassTopAppBar.kt",
+      "blob_sha": "0bcc87b3dd5c4f8bf48d52e3ab48809fe9eeb3b1",
+      "source_url": "https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-glass/src/commonMain/kotlin/top/yukonga/miuix/kmp/glass/GlassTopAppBar.kt",
+      "references": [
+        "advanced.md"
+      ],
+      "sha256": "7085f619aa9cd902976bf7b6cbfe35c485332e1fba9f450e2839f72beeace1e3"
     }
   ],
-  "verified_release": "0.9.5-beta01"
+  "verified_release": "0.9.5-beta01",
+  "retrieved_at_utc": "2026-11-21T12:13:58.492059+00:00"
 }

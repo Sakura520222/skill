@@ -15,6 +15,8 @@ message buttons, Decision Providers, sender/session selectors, and SSE closure
 guidance with explicit release-versus-master compatibility boundaries.
 Modifications dated 2026-11-18: updated source mapping and guidance for the
 Agent Runtime, conversation events, public imports and ChatUI views.
+Modifications dated 2026-11-21: pinned v4.30.0-beta.1 and documented
+background tool handoff, released ChatUI views and QQ streaming behavior.
 This adapted work is distributed under AGPL-3.0-or-later, without warranty.
 All bundled instructions and executable helpers are provided in source form.
 

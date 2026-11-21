@@ -1,6 +1,6 @@
 # ChatUI 消息卡片与工作台
 
-先确认目标包含 [消息视图 #11179](https://github.com/AstrBotDevs/AstrBot/pull/11179) 和所需的 [工作台 #11218](https://github.com/AstrBotDevs/AstrBot/pull/11218) 实现。这两项均晚于 `v4.30.0-alpha.1` 标签。当前内置宿主是 AstrBot ChatUI。
+使用 `v4.30.0-beta.1` 或包含相应实现的构建。消息卡片和工作台均已随该 Beta 发布，内置宿主是 AstrBot ChatUI。 [发布说明](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-beta.1) · [消息视图 #11179](https://github.com/AstrBotDevs/AstrBot/pull/11179) · [工作台 #11218](https://github.com/AstrBotDevs/AstrBot/pull/11218)
 
 ## 声明视图和交互方式
 
@@ -78,4 +78,4 @@ button.onclick = async () => {
 
 常驻视图可在用户操作时调用 `bridge.chat.fill(text)` 追加至输入框，或用 `bridge.chat.send(text)` 请求发送，Promise 完成表示请求已接受。无会话、会话切换或正在生成时，发送可能被拒绝。
 
-来源：[视图总览、消息交互组件和工作台文档](https://github.com/AstrBotDevs/AstrBot/tree/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/plugin-views)、[Bridge 类型定义](https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/public/types/astrbot-plugin-view.d.ts)。
+来源：[视图总览、消息交互组件和工作台文档](https://github.com/AstrBotDevs/AstrBot/tree/90ba3270f09b857063da68908d80f742042067cd/docs/zh/dev/star/guides/plugin-views)、[Bridge 类型定义](https://github.com/AstrBotDevs/AstrBot/blob/90ba3270f09b857063da68908d80f742042067cd/docs/public/types/astrbot-plugin-view.d.ts)。

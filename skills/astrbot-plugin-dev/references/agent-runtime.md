@@ -1,6 +1,6 @@
 # 触发现有会话的 Agent
 
-`v4.30.0-alpha.1` 已提供 `self.context.agent.run_turn()`。内置 runtime 会沿用目标会话的人格、历史、工具、skills 和 Agent hooks。插件自行配置模型和工具时，见 [自定义 Agent 循环](ai-tools.md)。来源：[上游 Agent 指南](https://github.com/AstrBotDevs/AstrBot/blob/06fc50b43ea1c13093c91762f3b9361911362f9a/docs/zh/dev/star/guides/ai/agent.md)、[Alpha 发布记录](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-alpha.1)。
+`v4.30.0-alpha.1` 已提供 `self.context.agent.run_turn()`。内置 runtime 会沿用目标会话的人格、历史、工具、skills 和 Agent hooks。插件自行配置模型和工具时，见 [自定义 Agent 循环](ai-tools.md)。来源：[上游 Agent 指南](https://github.com/AstrBotDevs/AstrBot/blob/90ba3270f09b857063da68908d80f742042067cd/docs/zh/dev/star/guides/ai/agent.md)、[Alpha 发布记录](https://github.com/AstrBotDevs/AstrBot/releases/tag/v4.30.0-alpha.1)。
 
 ## 提交、等待与取消
 
@@ -49,3 +49,5 @@ if result.status == TurnStatus.COMPLETED:
 ## 继续对话
 
 `run.follow_up(input_message=...)` 在原 runtime 和 conversation 排队下一轮并继承投递策略。`run.steer(input_message=...)` 尝试给活跃 turn 追加输入，返回 `None` 表示拒绝，接受时等待回执可获知输入是否已被消费并保存。拒绝后由调用方决定是否排队。需要给后续轮设置 metadata 时，用目标 `session_id` 显式发起 `run_turn`。
+
+从 `v4.30.0-beta.1` 起，内置执行器等待工具结果期间收到 steer，会将仍在执行的调用移交后台，前台继续处理新输入。同一个工具调用只执行一次。完成或失败后，框架唤醒原会话处理结果。停止会话会取消这些后台调用。自定义执行器若未实现后台移交，会继续等待工具完成。 [上游变更 #11142](https://github.com/AstrBotDevs/AstrBot/pull/11142)

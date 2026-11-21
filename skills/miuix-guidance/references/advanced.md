@@ -8,9 +8,13 @@
 
 使用 `LazyColumn(contentPadding = paddingValues)` 等方式处理 Scaffold 内容边距；根据是否需要滚动内容穿过透明顶栏决定 padding 放在内容还是容器上。不要同时重复应用同一 Insets。若另用官方 `overScrollVertical()`，官方示例要求它位于 nested scroll 绑定之前；同时核对所用版本的默认 overscroll，避免重复效果。
 
-在 `0.9.5-beta01` 中，Glass 顶栏的渐进模糊和阴影使用 `scrollBehavior.state.visualContentOffset`，它合并实际滚动与弹性位移。需要显式越界联动时，将 `overScrollVertical(onOffsetChanged = ...)` 放在 `nestedScroll` 之前，让回调更新 `scrollBehavior.state.overscrollOffset`，保留 `contentOffset` 记录实际滚动。列表已绑定该行为时，外层 `PullToRefresh` 无需再绑定。程序化滚动可以给 `GlassTopAppBar` 传 `visualContentOffset` 和 `isContentScrolled`。从较早 Glass 快照迁移时，`largeTitleBlurRadius` 改为 `titleBlurRadius`。
+在 `0.9.5-beta03` 中，列表可向 `GlassTopAppBar` 传 `isContentScrolled = listState.canScrollBackward` 和共享的 `scrollBehavior`。负向越界也会触发玻璃材质与背景。需要显式越界联动时，将 `overScrollVertical(onOffsetChanged = ...)` 放在 `nestedScroll` 之前，由回调写入 `scrollBehavior.state.overscrollOffset`，`contentOffset` 记录实际滚动。列表已绑定该行为时，外层 `PullToRefresh` 无需再绑定。
 
-来源：[TopAppBar](https://compose-miuix-ui.github.io/miuix/zh_CN/components/basic/topappbar)、[Beta GlassTopAppBar](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass/glasstopappbar.md)、[Beta 越界回弹](https://github.com/compose-miuix-ui/miuix/blob/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide/utils.md)。
+迁移较早的 Glass 示例时，将 `largeTitleBlurRadius` 改为 `titleBlurRadius`。当前 `GlassTopAppBar` 通过滚动行为和 `isContentScrolled` 获取滚动状态，`visualContentOffset` 仍可用于 `GlassTopAppBarDefaults.collapseRamp`。
+
+来源：[TopAppBar](https://compose-miuix-ui.github.io/miuix/zh_CN/components/basic/topappbar)、[Beta GlassTopAppBar](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasstopappbar.md)、[Beta 越界回弹](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide/utils.md)。
+
+`0.9.5-beta02` 起可给滚动容器加 `Modifier.verticalScrollBar(state = listState, topAppBarScrollBehavior = scrollBehavior)`，确保拖动滚动条时也联动顶栏。横向容器用 `Modifier.horizontalScrollBar(state = ...)`。迁移旧适配器时，使用接受 `ScrollableState` 的 `rememberScrollBarAdapter`。 [滚动条源码](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/ScrollBar.kt)
 
 ## 图标
 
@@ -52,9 +56,11 @@ Beta 将 `GlassStyle`、`GlassMaterial`、`GlassShape` 等定义放在 `top.yuko
 
 宽屏玻璃侧栏可用 `GlassNavigationRail`。父容器已处理安全区时，传 `defaultWindowInsetsPadding = false`。展开动画中可在布局阶段读取 `railState.progress` 给内容让出空间，同时保持采样背景铺满。工具栏和主操作分别见 `GlassFloatingToolbar` 与 `GlassFloatingActionButton`。这些组件属于 `top.yukonga.miuix.kmp.glass`。
 
+`0.9.5-beta02` 起，玻璃弹层的输入框可使用 `GlassTextField`，支持 `TextFieldState` 和受控值重载。全屏搜索可用同属 `miuix-glass` 的 `GlassSearchOverlay`，在需要关闭模糊时传 `blurEnabled = false`。 [输入框](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasstextfield.md) · [搜索浮层](https://github.com/compose-miuix-ui/miuix/blob/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass/glasssearchoverlay.md)
+
 按实际滚动表现调整渐进模糊面积和层数。Beta 的 `BlurDefaults.MaxBlurRadius` 是 `100f`（dp）。各接口参数仍要区分 `Dp` 与像素。
 
-来源：[Beta 模糊、玻璃与材质指南](https://github.com/compose-miuix-ui/miuix/tree/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/guide)、[Beta Glass 组件](https://github.com/compose-miuix-ui/miuix/tree/6d2554a850b8960e2616c968263ff64beb5ffb03/docs/zh_CN/components/glass)。
+来源：[Beta 模糊、玻璃与材质指南](https://github.com/compose-miuix-ui/miuix/tree/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/guide)、[Beta Glass 组件](https://github.com/compose-miuix-ui/miuix/tree/3526cfe2ca0779c5a2eab99af8737a96c9a8a885/docs/zh_CN/components/glass)。
 
 ## 连续圆角
 

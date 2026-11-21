@@ -22,7 +22,13 @@
 
 先锁定迁移起点和目标 release，只修改目标变更涉及的部分。逐项核查依赖拆分、包路径、`Super*` 等组件命名、弹层 `show` 参数类型、主题 Controller、导航 DSL 与视觉效果模块；这些是核查点，不是跨所有版本统一的一键替换规则。
 
-从 `0.9.4` 迁到 `0.9.5-beta01` 时，使用 `miuix-shader` 的项目应核查 `miuix-material` 及包名变更。iOS 在移动内容和 Scaffold 嵌套时出现 Insets 崩溃，可对照 Beta 中 [Scaffold 的修复](https://github.com/compose-miuix-ui/miuix/commit/95948685)，并用目标导航路径复现验证。
+从 `0.9.4` 迁到 `0.9.5` 系列 Beta 时，使用 `miuix-shader` 的项目应核查 `miuix-material` 及包名变更。iOS 在移动内容和 Scaffold 嵌套时出现 Insets 崩溃，可对照 Beta 中 [Scaffold 的修复](https://github.com/compose-miuix-ui/miuix/commit/95948685)，并用目标导航路径复现验证。
+
+从 `beta01` 升到 `beta02` 或 `beta03` 时，检查以下调用点。 [beta02 迁移说明](https://github.com/compose-miuix-ui/miuix/releases/tag/v0.9.5-beta02)
+
+- Compose Multiplatform 依赖对齐 `1.13.0-rc01` 系列，再重新编译。
+- 自定义滚动条从按状态类型区分的旧适配器迁移到统一的 `rememberScrollBarAdapter`，或使用 [滚动条修饰符](advanced.md#大标题与滚动)。旧的 `LazyLineContentAdapter` 和拖拽辅助方法已移除。
+- Desktop 的 `MiuixWindowProperties` 移除了窗口类型参数。将 `onVisibleChange` 和 `onResizeEdgeChange` 传给 `MiuixWindow` 或 `MiuixDialogWindow`，属性对象继续存放窗口配置。
 
 每完成一个相对独立的迁移，运行受影响模块编译。删除旧依赖之前检查剩余调用者；项目同时需要旧组件或 Material 组件时，保留必要边界。
 

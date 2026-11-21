@@ -3,15 +3,15 @@ name: astrbot-plugin-dev
 description: 开发、修改和调试 AstrBot Python 插件（Star），处理消息指令、事件钩子、插件配置、LLM 工具、存储及 WebUI 视图，并准备插件发布。Use for AstrBot plugin development; 不用于普通机器人使用问答或独立的 NapCat/OneBot 服务开发。
 license: AGPL-3.0-or-later
 metadata:
-  version: "1.2.0"
-  documentation_snapshot: "2026-11-18"
+  version: "1.3.0"
+  documentation_snapshot: "2026-11-21"
 ---
 
 # AstrBot 插件开发
 
 根据用户目标，在已有插件中完成改动，或创建可被 AstrBot 加载的新插件。先确认项目的 AstrBot 版本、目标消息平台、已有代码和依赖；只读取本次功能涉及的参考文件。
 
-本技能以 2026-11-18 核对的上游主分支为参考。Agent Runtime、对话事件存储和新版公开导入已进入 `v4.30.0-alpha.1`，ChatUI 消息卡片与工作台需要该标签之后的实现。面向 `v4.29.4` 等旧版时，沿用参考页中的兼容接口。发布标签、固定提交和更新方法见 [references/sources.md](references/sources.md)。
+本技能固定参考 `v4.30.0-beta.1`。该版包含 ChatUI 消息卡片、工作台，以及追加输入时将等待中的工具调用转入后台的能力。Agent Runtime、对话事件存储和新版公开导入自 `v4.30.0-alpha.1` 起可用。面向 `v4.29.4` 等旧版时，沿用参考页中的兼容接口。发布标签、固定提交和更新方法见 [references/sources.md](references/sources.md)。
 
 ## 按任务选读
 
